@@ -5,10 +5,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="hs-subtitle">Award Winning UNIVERSITY</div>
-                            <h2 class="hs-title">An investment in knowledge pays the best interest.</h2>
-                            <p class="hs-des">Education is not just about going to school and getting a degree. It's about widening your<br> knowledge and absorbing the truth about life. Knowledge is power.</p>
-                            <div class="site-btn">GET STARTED</div>
+                            <div class="hs-subtitle">Học trực tuyến</div>
+                            <h2 class="hs-title">Tại sao nên học trực tuyến?</h2>
+                            <p class="hs-des">Học Trực tuyến hay còn có tên gọi khác là E-Learning , đây là một mô hình học rất được ưa chuộng trên toàn thế giới, nhưng mô hình này gần đây mới được các bạn trẻ Việt Nam đón nhận.</p>
+                            <div class="site-btn">Xem chi tiết</div>
                         </div>
                     </div>
                 </div>
@@ -19,10 +19,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="hs-subtitle">Award Winning UNIVERSITY</div>
-                            <h2 class="hs-title">An investment in knowledge pays the best interest.</h2>
-                            <p class="hs-des">Education is not just about going to school and getting a degree. It's about widening your<br> knowledge and absorbing the truth about life. Knowledge is power.</p>
-                            <div class="site-btn">GET STARTED</div>
+                            <div class="hs-subtitle">Học trực tuyến</div>
+                            <h2 class="hs-title">Học đại học trực tuyến có hiệu quả không ?</h2>
+                            <p class="hs-des">Mô hình Học trực tuyến dễ dàng thu hút sự quan tâm của cộng đồng mạng, từ đây mọi người có thể dễ dàng phổ cập và nâng cao kiến thức thông qua những khóa học online đầy rẫy trên internet.</p>
+                            <div class="site-btn">Xem chi tiết</div>
                         </div>
                     </div>
                 </div>

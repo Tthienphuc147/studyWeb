@@ -42,7 +42,7 @@ class chitietbaihocController extends Controller
             }
             else
             {
-                return var_dump("hết rồi chưa làm , nghỉ ngoi đi làm chi lắm vậy!!!");
+                return var_dump("!!!!!!!!!!!!!!!!!!!!!");
             }
         }
         else {

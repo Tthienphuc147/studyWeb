@@ -13,7 +13,7 @@ Home
 						<i class="fa fa-graduation-cap"></i>
 					</div>
 					<div class="counter-content">
-						<h2>NEXT COUSRE: Sales & Marketing Alignment</h2>
+						<h2>Khóa sắp tới:Tiếng anh giao tiếp</h2>
 						<p><i class="fa fa-calendar-o"></i>07:00 PM - 09:00 PM</p>
 					</div>
 				</div>
@@ -32,7 +32,7 @@ Home
 
 
 	<!-- Services section -->
-	<section class="service-section spad">
+	{{-- <section class="service-section spad">
 		<div class="container services">
 			<div class="section-title text-center">
 				<h3>OUR SERVICES</h3>
@@ -131,7 +131,7 @@ Home
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- Enroll section end -->
 
 
