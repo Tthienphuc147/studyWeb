@@ -18,7 +18,7 @@
 </head>
 <body>
 @include('block.header')
-@include('block.slider')
+
 
 @yield('content')
 

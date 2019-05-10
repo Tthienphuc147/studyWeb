@@ -12,3 +12,7 @@
 */
 
 Route::get('/','homeController@showHome');
+Route::get('/lophoc/{id}','LopHocController@show');
+Route::get('/baihoc/{id}/{id1}','baihocController@show');
+Route::get('/ctbaihoc/{id}','chitietbaihocController@show');
+Route::post('/check/{id}/{idb}','chitietbaihocController@check');

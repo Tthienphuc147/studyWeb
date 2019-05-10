@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class homeController extends Controller
 {
     public function showHome(){
-        return view('page.home');
+        $lophoc='App\lophoc'::get();
+        return view('page.home')->with('datalophoc',$lophoc);
     }
 
 }
