@@ -13,7 +13,7 @@ Lớp học
 		<div class="container">
 		@foreach ($mucdo as $itemmucdo)
 			@if($itemmucdo!=NULL)
-			<h1>{{ $itemmucdo->tenmucdo }}</h1>
+			<button type="button" class="btn peach-gradient btn-lg" style="padding:10px 5px;width:200px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" ><h5 style="color:white;">{{ $itemmucdo->tenmucdo }}</h5></button>
 			<div class="row">
                 <!-- course item -->
 					<?php $i=0 ?>
@@ -31,7 +31,7 @@ Lớp học
 							@endif
 							<?php $i++ ?>
 						@endforeach
-					
+
 
 				<!-- course item -->
 			</div>
