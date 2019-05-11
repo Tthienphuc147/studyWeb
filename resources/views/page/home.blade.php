@@ -13,7 +13,7 @@ Home
 						<i class="fa fa-graduation-cap"></i>
 					</div>
 					<div class="counter-content">
-						<h2>Khóa sắp tới:Tiếng anh giao tiếp</h2>
+						<h2>Khóa sắp tới:Toán Lớp 1</h2>
 						<p><i class="fa fa-calendar-o"></i>07:00 PM - 09:00 PM</p>
 					</div>
 				</div>

@@ -487,34 +487,7 @@ Bài học
 						</div>
 					</div>
 					<!-- widget -->
-					<div class="widget">
-						<h4 class="widget-title">Tags</h4>
-						<div class="tags">
-							<a href="#">DEVELOPMENT</a>
-							<a href="#">BUSINESS</a>
-							<a href="#">PROJECTS</a>
-							<a href="#">GOOGLE ADWORDS</a>
-							<a href="#">SQL DATABASE</a>
-							<a href="#">MARKETING</a>
-							<a href="#">DESIGN</a>
-						</div>
-					</div>
-					<!-- widget -->
-					<div class="widget">
-						<h4 class="widget-title">Categories</h4>
-						<ul>
-							<li><a href="">Business</a></li>
-							<li><a href="">Design</a></li>
-							<li><a href="">Management</a></li>
-							<li><a href="">Marketing Plans</a></li>
-							<li><a href="">Construction</a></li>
-							<li><a href="">Honored</a></li>
-							<li><a href="">Program development</a></li>
-							<li><a href="">My SQL database</a></li>
-							<li><a href="">Google Adwords</a></li>
-							<li><a href="">Education</a></li>
-						</ul>
-					</div>
+					
 					<!-- widget -->
 					<div class="widget">
 						<img src="img/ad.jpg" alt="">

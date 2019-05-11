@@ -21,10 +21,10 @@
             <a href=""><i class="fa fa-shopping-cart"></i></a>
         </div>
         <ul class="main-menu">
-            <li class="active"><a href="">Trang chủ</a></li>
-            <li><a href="">Lớp học</a></li>
-            <li><a href="">Kiểm tra</a></li>
-            <li><a href="">Liên hệ</a></li>
+            <li class="active"><a href="/">Trang chủ</a></li>
+            <li><a href="/">Lớp học</a></li>
+            <li><a href="/">Kiểm tra</a></li>
+            <li><a href="/">Liên hệ</a></li>
 
         </ul>
     </div>

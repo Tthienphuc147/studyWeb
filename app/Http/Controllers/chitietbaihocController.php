@@ -12,7 +12,7 @@ class chitietbaihocController extends Controller
 
     public function show($id)
     {
-        $data=DB::table('chitietbaihoc')->where('id',$id)->first();
+        $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->first();
         $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data->id)->get();
 
         $tieude=DB::table('baihoc')->where('id',$id)->first();
@@ -20,7 +20,7 @@ class chitietbaihocController extends Controller
 
     }
     public function check($id,$idb,Request $request){
-        $data=DB::table('chitietbaihoc')->where('id',$id)->get();
+        $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get();
         $tieude=DB::table('baihoc')->where('id',$id)->first();
         $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data[$idb]->id)->get();
         $check=0;
@@ -33,6 +33,7 @@ class chitietbaihocController extends Controller
         }
         if($check==0)
         {
+           // var_dump($idb);var_dump(count($data)-1);
             if($idb<count($data)-1)
             {
                 $idb++;
@@ -42,7 +43,7 @@ class chitietbaihocController extends Controller
             }
             else
             {
-                return var_dump("!!!!!!!!!!!!!!!!!!!!!");
+                return var_dump("Trả lời đúng toàn bộ rồi demo hết bài rồi!!!");
             }
         }
         else {
