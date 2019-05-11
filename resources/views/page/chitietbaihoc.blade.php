@@ -392,28 +392,56 @@ Bài học
 										<h3>{!! $data->noidungbaihoc !!}</h3>
 									</div>
 									<div class="modal-body">
-                                            <form action="/check/{{ $data->id_baihoc }}/{{ $idb }}" method="POST">
+                                            <form action="/check/{{ $data->id_baihoc }}/{{ $idb }}/{{$tinh}}" method="POST">
 
 									    <div class="quiz" id="quiz" data-toggle="buttons">
                                                 {{ csrf_field() }}
+                                            @if($data->id_loaitracnghiem==1)    
                                                 @foreach ($dapan as $item)
                                                 <label class="element-animation1 btn btn-lg btn-block" style="background-color: #f6783a;color:white"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="checkbox" name="{{ $item->id }}"  > {{ $item->luachon }}</label>
 
                                                 @endforeach
+                                            @else
 
+                                               
+                                                <label class="element-animation1 btn btn-lg btn-block" 
+                                                style="background-color: #f6783a;color:white"><span class="btn-label">
+                                                <i class="glyphicon glyphicon-chevron-right"></i></span> 
+                                                @foreach ($dapan as $item)
+                                                <input type="text" name="{{ $item->id }}"  >
+                                                @endforeach
+                                                 </label>
 
-                                               <button type="submit" class="btn" style="background-color: #f9996a;color:white;margin-top: 20px">KIỂM TRA</button>
+                                                
+
+                                            @endif
+                                               <button type="submit" class="btn" style="background-color: #f9996a;color:white;margin-top: 20px">KIỂM TRA</button><br/>
+                                               @if($anw==1)
+                                               <label>Rất tiếc câu trả lời của bạn không đúng. 
+                                               @if($tinh==1)Bạn có muốn xem hướng dẫn giải không?
+                                               </label><br/>
+                                               <button type="submit" class="btn" style="background-color: #990033;color:white;margin-top: 20px">XEM NGAY</button>
+                                               @endif
+                                               @endif
                                         </form>
 
 
 
 								        </div>
                                     </div>
+                                    @if($anw==1&&$tinh>1)
+                                    <button  class="btn" style="background-color: #990033;color:white;margin-top: 20px">ĐÁP ÁN</button>
+                                    <div class="modal-header">
+
+										<h3>{!! $data->noidungdapan !!}</h3>
+									</div>
                                     <div style="display:flex;justify-content:center">
-                                            @if($anw==1)
+                                            
+                                                
                                                {!! $data->video !!}
-                                               @endif
+                                               
                                         </div>
+                                        @endif
 							   <div class="modal-footer text-muted">
 								<span id="answer"></span>
 							</div>
