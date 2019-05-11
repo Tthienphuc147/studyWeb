@@ -21,7 +21,7 @@ class chitietbaihocController extends Controller
     }
     public function check($id,$idb,Request $request){
         $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get();
-        $tieude=DB::table('baihoc')->where('id',$id)->first();
+        $tieude=DB::table('baihoc')->where('id',$data[$idb]->id_baihoc)->first();
         $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data[$idb]->id)->get();
         $check=0;
         foreach ($dapan as $i) {
@@ -33,7 +33,6 @@ class chitietbaihocController extends Controller
         }
         if($check==0)
         {
-           // var_dump($idb);var_dump(count($data)-1);
             if($idb<count($data)-1)
             {
                 $idb++;
@@ -47,7 +46,8 @@ class chitietbaihocController extends Controller
             }
         }
         else {
-            return view('page.chitietbaihoc')->with('idb',$idb)->with('data',$data[$idb])->with('tieude',$tieude)->with('dapan',$dapan)->with('anw',1);
+           return view('page.chitietbaihoc')->with('idb',$idb)->with('data',$data[$idb])->with('tieude',$tieude)->with('dapan',$dapan)->with('anw',1);
+        
         }
     }
 

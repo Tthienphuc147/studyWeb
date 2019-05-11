@@ -53,9 +53,9 @@
             <div class="col-sm-6 col-lg-3 footer-widget">
                 <h6 class="fw-title">CONTACT</h6>
                 <ul class="contact">
-                    <li><p><i class="fa fa-map-marker"></i> 40 Baria Street 133/2, NewYork City,US</p></li>
-                    <li><p><i class="fa fa-phone"></i> (+88) 111 555 666</p></li>
-                    <li><p><i class="fa fa-envelope"></i> infodeercreative@gmail.com</p></li>
+                    <li><p><i class="fa fa-map-marker"></i> 546/48 Tôn Đản, Đà Nẵng city</p></li>
+                    <li><p><i class="fa fa-phone"></i> 0789411110</p></li>
+                    <li><p><i class="fa fa-envelope"></i> nghiadh2016@gmail.com</p></li>
                     <li><p><i class="fa fa-clock-o"></i> Monday - Friday, 08:00AM - 06:00 PM</p></li>
                 </ul>
             </div>
@@ -65,7 +65,7 @@
     <div class="copyright">
         <div class="container">
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Design by startup team: Trần Văn Hưng - Bùi Trọng Nghĩa - Phan Đinh Thiên Phúc - Phan Minh Hải</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
         </div>
     </div>

@@ -392,12 +392,12 @@ Bài học
 										<h3>{!! $data->noidungbaihoc !!}</h3>
 									</div>
 									<div class="modal-body">
-                                            <form action="/check/{{ $data->id }}/{{ $idb }}" method="POST">
+                                            <form action="/check/{{ $data->id_baihoc }}/{{ $idb }}" method="POST">
 
 									    <div class="quiz" id="quiz" data-toggle="buttons">
                                                 {{ csrf_field() }}
                                                 @foreach ($dapan as $item)
-                                                <label class="element-animation1 btn btn-lg btn-block" style="background-color: #f6783a;color:white"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="{{ $item->id }}" > {{ $item->luachon }}</label>
+                                                <label class="element-animation1 btn btn-lg btn-block" style="background-color: #f6783a;color:white"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="checkbox" name="{{ $item->id }}"  > {{ $item->luachon }}</label>
 
                                                 @endforeach
 
