@@ -16,7 +16,8 @@ class chitietbaihocController extends Controller
         $mucdo=DB::table('mucdo')
         ->leftjoin('chitietbaihoc', 'mucdo.id', '=', 'chitietbaihoc.id_mucdo')
         ->where('id_baihoc',$id)
-        ->get()->toArray();
+        ->orderby('id_mucdo','asc')
+        ->get();
         for($i=1;$i<count($mucdo);$i++)
         {
             
