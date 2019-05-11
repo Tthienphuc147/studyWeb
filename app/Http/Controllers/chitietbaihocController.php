@@ -76,6 +76,7 @@ class chitietbaihocController extends Controller
             if($idb<count($data)-1)
             {
                 $idb++;
+                $tinh=0;
                 $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data[$idb]->id)->get();
                 return view('page.chitietbaihoc')->with('data',$data[$idb])->with('tieude',$tieude)
                 ->with('dapan',$dapan)->with('anw',0)->with('idb',$idb)->with('tinh',$tinh);
