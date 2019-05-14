@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2019 at 10:35 AM
+-- Generation Time: May 14, 2019 at 03:33 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -247,6 +247,26 @@ INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phanquyen`
+--
+
+CREATE TABLE `phanquyen` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `phanquyen` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `phanquyen`
+--
+
+INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
+(1, 1, 'user'),
+(2, 2, 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `submit`
 --
 
@@ -286,6 +306,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
+(1, 'Phan Đinh THiên Phuc', 'dthienphuc147@gmail.com', NULL, 'phuc123456', NULL, 1, 1111111111, NULL, NULL),
+(2, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -355,6 +383,12 @@ ALTER TABLE `monhoc`
 -- Indexes for table `mucdo`
 --
 ALTER TABLE `mucdo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -440,6 +474,12 @@ ALTER TABLE `mucdo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `submit`
 --
 ALTER TABLE `submit`
@@ -455,7 +495,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
