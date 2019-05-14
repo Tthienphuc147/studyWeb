@@ -17,8 +17,13 @@
 <nav class="nav-section">
     <div class="container">
         <div class="nav-right">
-            <a href=""><i class="fa fa-search"></i></a>
-            <a href=""><i class="fa fa-shopping-cart"></i></a>
+            @if (request()->session()->has('id'))
+            <a href="/logout"><button class="btn">Đăng Xuất</button></a>
+            @else
+            <a href="/loginview"><button class="btn">Đăng nhập</button></a>
+            @endif
+
+
         </div>
         <ul class="main-menu">
             <li class="active"><a href="/">Trang chủ</a></li>
