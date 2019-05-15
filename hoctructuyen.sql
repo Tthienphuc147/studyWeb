@@ -240,7 +240,7 @@ CREATE TABLE `users` (
   `sdt` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `ngaysing` datetime
+  `ngaysinh` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -438,7 +438,7 @@ ALTER TABLE `users`
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
 (NULL, 'Phan Đinh THiên Phuc', 'dthienphuc147@gmail.com', NULL, 'phuc123456', NULL, 1, 1111111111, NULL, NULL),
 (NULL, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL),
-(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL);
+(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 1, 1, NULL, NULL);
 
 --
 -- Dumping data for table `phanquyen`
