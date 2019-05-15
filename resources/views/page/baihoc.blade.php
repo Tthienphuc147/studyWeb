@@ -11,12 +11,16 @@ Lớp học
 	</div>
 <section class="full-courses-section spad pt-0">
 		<div class="container">
+		@if(count($databaihoc)>0)
+		<button type="button" class="btn peach-gradient btn-lg" 
+		style="padding:10px 5px;width:200px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+		<h5 style="color:white;">{{ $databaihoc[0]->tenloaibaihoc }}</h5></button>
 			<div class="row">
                 <!-- course item -->
                 @foreach ($databaihoc as $item)
                 <div class="col-lg-4 col-md-6 course-item">
                         <div class="course-thumb">
-                            <a href="/ctbaihoc/{{ $item->id }}"><img src="/public/img/course/1.jpg" alt=""></a>
+                            <a href="/ctbaihoc/{{ $item->id }}"><img src="{{$item->anh}}" alt=""></a>
                             <div class="course-cat">
                             <span>{{ $item->tenbaihoc }}</span>
                             </div>
@@ -24,10 +28,54 @@ Lớp học
 
                     </div>
                 @endforeach
-
+			
 				<!-- course item -->
 			</div>
+			@endif	
+			@if(count($datathi)>0)
+			<button type="button" class="btn peach-gradient btn-lg" 
+		style="padding:10px 5px;width:200px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+		<h5 style="color:white;">{{ $datathi[0]->tenloaibaihoc }}</h5></button>
+			<div class="row">
+				{{$thongbao}}
+                <!-- course item -->
+				<?php $mytime1=Carbon\Carbon::now();?>
+                @foreach ($datathi as $item)
+                <div class="col-lg-4 col-md-6 course-item">
+                        <div class="course-thumb">
+<a href=<?php if($item->thoigian>$mytime1 && $item->created_at<$mytime1  ){?>"/baithi/{{ $item->id }}"<?php }?>><img src="{{$item->anh}}" alt=""></a>
+                            <div class="course-cat">
+                            <span>{{ $item->tenbaihoc }}</span>
+                            </div>
+                        </div>
+					
+					<h5>Time Begin: {{$item->created_at}}</h5>
+					<h5>Time End : {{$item->thoigian}}</h5>
+					@if($item->created_at>$mytime1)
+					<div countdown="" data-date="{{$item->created_at}}">
+					Start In: <span data-days="">00</span> ngày 
+								<span data-hours="">00</span> giờ 
+								<span data-minutes="">00</span> phút 
+								<span data-seconds="">00</span> giây
+					</div>
+					@elseif($item->thoigian>$mytime1)
+					<div countdown="" data-date="{{$item->thoigian}}">
+					Starting: <span data-days="">00</span> ngày 
+								<span data-hours="">00</span> giờ 
+								<span data-minutes="">00</span> phút 
+								<span data-seconds="">00</span> giây
+					To End
+					</div>
+					@endif
+					
 
+                    </div>
+                @endforeach
+				
+			
+				<!-- course item -->
+			</div>
+			@endif
 		</div>
 	</section>
 	<!-- Courses section end-->
@@ -36,3 +84,4 @@ Lớp học
 	<!-- Newsletter section -->
 
 @endsection
+

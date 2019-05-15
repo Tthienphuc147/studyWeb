@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\lophoc;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class baihocController extends Controller
 {
 
@@ -14,10 +14,18 @@ class baihocController extends Controller
     {
         $data1=DB::table('chitietlophoc_monhoc')->where('id_lophoc',$id)->where('id_monhoc',$id1)->first();
         $databaihoc = DB::table('baihoc')
-            ->where('id_chitietlophoc_monhoc',$data1->id)
-            ->get();
-            //var_dump($data1);
-        return view('page.baihoc')->with('databaihoc',$databaihoc);
+        ->join('loaibaihoc','baihoc.id_loaibai','=','loaibaihoc.id')
+        ->where('id_chitietlophoc_monhoc',$data1->id)
+        ->where('loaibaihoc.id',2)
+        ->get();
+        $datathi=DB::table('baihoc')
+        ->join('loaibaihoc','baihoc.id_loaibai','=','loaibaihoc.id')
+        ->where('id_chitietlophoc_monhoc',$data1->id)
+        ->where('loaibaihoc.id',1)
+        ->get();
+        $thongbao="";
+        
+        return view('page.baihoc')->with('databaihoc',$databaihoc)->with('datathi',$datathi)->with('thongbao',$thongbao);
 
     }
 

@@ -88,7 +88,7 @@ Drop table if exists `chitietlop_user`;
 CREATE TABLE `chitietlop_user` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_lophoc` int(11) NOT NULL
+  `id_chitietlophoc_monhoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -518,8 +518,22 @@ INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `vid
 --
 
 INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`, `updated_at`, `thoigian`, `anh`, `id_loaibai`) VALUES
-(NULL, 1, 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '', 0);
+(NULL, 1, 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '', 0),
+(NULL, '1', 'Thi Giữa Khóa', '2019-05-15 00:00:00', '0000-00-00 00:00:00.000000', '2019-05-20 00:00:00', '', '1');
 
+--
+-- Dumping data for table `loaibaihoc`
+--
+
+INSERT INTO `baihoc` (`id`, `tenloaibaihoc`) VALUES
+(NULL, 'Các Cuộc Thi'),
+(NULL, 'Bài Học');
+--
+-- Dumping data for table `chitietlop_user`
+--
+INSERT INTO `chitietlop_user` (`id`, `id_user`, `id_chitietlophoc_monhoc`) 
+VALUES (NULL, '3', '1'), 
+(NULL, '1', '1');
 
 COMMIT;
 

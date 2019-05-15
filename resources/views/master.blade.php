@@ -31,6 +31,7 @@
 <script type='text/javascript' src='{{ asset('public/js/masonry.pkgd.min.js') }}'></script>
 <script type='text/javascript' src='{{ asset('public/js/magnific-popup.min.js') }}'></script>
 <script type='text/javascript' src='{{ asset('public/js/main.js') }}'></script>
+<script type='text/javascript' src='{{ asset('public/js/countdown.js') }}'></script>
 
 
 
