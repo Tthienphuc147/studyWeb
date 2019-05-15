@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `baihoc`
 --
-
+Drop table if exists `baihoc`; 
 CREATE TABLE `baihoc` (
   `id` int(11) NOT NULL,
   `id_chitietlophoc_monhoc` int(11) NOT NULL,
@@ -51,7 +51,7 @@ INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`
 --
 -- Table structure for table `chitietbaihoc`
 --
-
+Drop table if exists `chitietbaihoc`;
 CREATE TABLE `chitietbaihoc` (
   `id` int(11) NOT NULL,
   `id_baihoc` int(11) NOT NULL,
@@ -83,7 +83,7 @@ INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `vid
 --
 -- Table structure for table `chitietlophoc_monhoc`
 --
-
+Drop table if exists `chitietlophoc_monhoc`;
 CREATE TABLE `chitietlophoc_monhoc` (
   `id` int(11) NOT NULL,
   `id_monhoc` int(11) NOT NULL,
@@ -106,7 +106,7 @@ INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`
 --
 -- Table structure for table `chitietlop_user`
 --
-
+Drop table if exists `chitietlop_user`;
 CREATE TABLE `chitietlop_user` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
@@ -117,7 +117,7 @@ CREATE TABLE `chitietlop_user` (
 --
 -- Table structure for table `dapan`
 --
-
+Drop table if exists `dapan`;
 CREATE TABLE `dapan` (
   `id` int(11) NOT NULL,
   `id_chitietbaihoc` int(11) NOT NULL,
@@ -145,7 +145,7 @@ INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
 --
 -- Table structure for table `loaibaihoc`
 --
-
+Drop table if exists `loaibaihoc`;
 CREATE TABLE `loaibaihoc` (
   `id` int(11) NOT NULL,
   `tenloaibaihoc` varchar(250) NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE `loaibaihoc` (
 --
 -- Table structure for table `loaitracnghiem`
 --
-
+Drop table if exists `loaitracnghiem`;
 CREATE TABLE `loaitracnghiem` (
   `id` int(11) NOT NULL,
   `tenloai` text NOT NULL
@@ -176,7 +176,7 @@ INSERT INTO `loaitracnghiem` (`id`, `tenloai`) VALUES
 --
 -- Table structure for table `lophoc`
 --
-
+Drop table if exists `lophoc`;
 CREATE TABLE `lophoc` (
   `id` int(11) NOT NULL,
   `tenlophoc` text NOT NULL,
@@ -196,7 +196,7 @@ INSERT INTO `lophoc` (`id`, `tenlophoc`, `anh`) VALUES
 --
 -- Table structure for table `migrations`
 --
-
+Drop table if exists `migrations`;
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -208,7 +208,7 @@ CREATE TABLE `migrations` (
 --
 -- Table structure for table `monhoc`
 --
-
+Drop table if exists `monhoc`;
 CREATE TABLE `monhoc` (
   `id` int(11) NOT NULL,
   `tenmonhoc` text NOT NULL,
@@ -228,7 +228,7 @@ INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
 --
 -- Table structure for table `mucdo`
 --
-
+Drop table if exists `mucdo`;
 CREATE TABLE `mucdo` (
   `id` int(11) NOT NULL,
   `tenmucdo` text NOT NULL,
@@ -249,7 +249,7 @@ INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
 --
 -- Table structure for table `phanquyen`
 --
-
+Drop table if exists `phanquyen`;
 CREATE TABLE `phanquyen` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -269,7 +269,7 @@ INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
 --
 -- Table structure for table `submit`
 --
-
+Drop table if exists `submit`;
 CREATE TABLE `submit` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -282,7 +282,7 @@ CREATE TABLE `submit` (
 --
 -- Table structure for table `taikhoan`
 --
-
+Drop table if exists `taikhoan`;
 CREATE TABLE `taikhoan` (
   `id` int(11) NOT NULL,
   `tenloaitk` varchar(250) NOT NULL
@@ -293,7 +293,7 @@ CREATE TABLE `taikhoan` (
 --
 -- Table structure for table `users`
 --
-
+Drop table if exists `users`;
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -304,7 +304,8 @@ CREATE TABLE `users` (
   `id_taikhoan` int(11) NOT NULL,
   `sdt` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ngaysing` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -417,19 +418,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `baihoc`
 --
 ALTER TABLE `baihoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chitietbaihoc`
 --
 ALTER TABLE `chitietbaihoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chitietlophoc_monhoc`
 --
 ALTER TABLE `chitietlophoc_monhoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chitietlop_user`
@@ -441,7 +442,7 @@ ALTER TABLE `chitietlop_user`
 -- AUTO_INCREMENT for table `dapan`
 --
 ALTER TABLE `dapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `loaibaihoc`
@@ -450,10 +451,15 @@ ALTER TABLE `loaibaihoc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `loaitracnghiem`
+--
+ALTER TABLE `loaitracnghiem`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `lophoc`
 --
 ALTER TABLE `lophoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -465,19 +471,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `monhoc`
 --
 ALTER TABLE `monhoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `mucdo`
 --
 ALTER TABLE `mucdo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `phanquyen`
 --
 ALTER TABLE `phanquyen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `submit`
@@ -495,7 +501,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -18,7 +18,8 @@
     <div class="container">
         <div class="nav-right">
             @if (request()->session()->has('id'))
-            <a href="/logout"><button class="btn">Đăng Xuất</button></a>
+            
+            <a href="/logout"> Xin chao, {{request()->session()->get('namelogin')}} <button class="btn">Đăng Xuất</button></a>
             @else
             <a href="/loginview"><button class="btn">Đăng nhập</button></a>
             @endif

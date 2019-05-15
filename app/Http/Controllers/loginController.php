@@ -16,7 +16,6 @@ class loginController extends Controller
         $email = $request->input('email');
         $pass=$request->input('password');
         $data=DB::table('users')
-        ->join('phanquyen', 'users.id', '=', 'phanquyen.id_user')
         ->where('email',$email)
         ->get();
 
@@ -32,15 +31,17 @@ class loginController extends Controller
                 'password.max' => 'Mật Khẩu gồm tối đa 32 ký tự!'
             ]);
                 $success=false;
+                var_dump($data);
             foreach($data as $account) {
-                if($pass == $account->password && $account->phanquyen=='user'){
+                if($pass == $account->password ){
                     $request->session()->put('login', true);
                     $request->session()->put('id', $account->id);
                     $request->session()->put('namelogin', $account->name);
                     $request->session()->put('email', $account->email);
-                    $request->session()->put('role', $account->phanquyen);
-                    return redirect('/');
+                   
                     $success=true;
+                    
+                    return redirect('/');
                     break;
 
                 }
@@ -49,9 +50,9 @@ class loginController extends Controller
                 }
 
             }
-            if($success===false){
-                return redirect('/loginview');
-            }
+            // if($success===false){
+            //     return redirect('/loginview');
+            // }
 
     }
     public function checklogin(Request $request){

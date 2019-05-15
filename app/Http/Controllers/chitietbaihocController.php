@@ -84,7 +84,7 @@ class chitietbaihocController extends Controller
             }
             else
             {
-               return  redirect('/');
+               return  redirect("/ctbaihoc/$id");
             }
         }
         else {
