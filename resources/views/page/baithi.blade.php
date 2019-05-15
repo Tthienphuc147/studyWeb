@@ -462,61 +462,23 @@ Bài học
 						<h5 class="widget-title">Recent News</h5>
 						<div class="recent-post-widget">
 							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/1.jpg"></div>
+							<!-- <div class="rp-item">
+								<div class="rp-thumb set-bg" ><img src="public/img/blog/1.jpg"/></div>
 								<div class="rp-content">
 									<h6>Snackable study:How to break up your master's degree</h6>
 									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
 								</div>
-							</div>
+							</div> -->
 							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/2.jpg"></div>
-								<div class="rp-content">
-									<h6>Op en University plans major ts to number of staff</h6>
-									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
-								</div>
-							</div>
-							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/3.jpg"></div>
-								<div class="rp-content">
-									<h6>My postgrad: ‘I worked on essays as giraffes walked by’</h6>
-									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
-								</div>
-							</div>
-							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/4.jpg"></div>
-								<div class="rp-content">
-									<h6>How to use the Guardian University Guide</h6>
-									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
-								</div>
-							</div>
-							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/5.jpg"></div>
-								<div class="rp-content">
-									<h6>My MBA experience: ‘It was an eye opener’</h6>
-									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
-								</div>
-							</div>
-							<!-- recent post -->
-							<div class="rp-item">
-								<div class="rp-thumb set-bg" data-setbg="img/blog/recent-post/6.jpg"></div>
-								<div class="rp-content">
-									<h6>My MBA experience: ‘It was an eye opener’</h6>
-									<p><i class="fa fa-clock-o"></i> 24 Mar 2018</p>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 					<!-- widget -->
 					
 					<!-- widget -->
-					<div class="widget">
+					<!-- <div class="widget">
 						<img src="img/ad.jpg" alt="">
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

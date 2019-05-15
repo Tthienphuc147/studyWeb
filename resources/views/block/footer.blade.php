@@ -4,7 +4,7 @@
             <!-- widget -->
             <div class="col-sm-6 col-lg-3 footer-widget">
                 <div class="about-widget">
-                    <img src="img/logo-light.png" alt="">
+                    <img src="/public/img/logo-light.png" alt="">
                     <p>orem ipsum dolor sit amet, consecter adipiscing elite. Donec minos varius, viverra justo ut, aliquet nisl.</p>
                     <div class="social pt-1">
                         <a href=""><i class="fa fa-twitter-square"></i></a>
