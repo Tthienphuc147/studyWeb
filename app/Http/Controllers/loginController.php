@@ -50,9 +50,9 @@ class loginController extends Controller
                 }
 
             }
-            // if($success===false){
-            //     return redirect('/loginview');
-            // }
+            if($success===false){
+                return redirect('/loginview');
+            }
 
     }
     public function checklogin(Request $request){
