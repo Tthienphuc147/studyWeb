@@ -39,12 +39,6 @@ CREATE TABLE `baihoc` (
   `id_loaibai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `baihoc`
---
-
-INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`, `updated_at`, `thoigian`, `anh`, `id_loaibai`) VALUES
-(1, 1, 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '', 0);
 
 -- --------------------------------------------------------
 
@@ -68,15 +62,6 @@ CREATE TABLE `chitietbaihoc` (
   `diem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `chitietbaihoc`
---
-
-INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `video`, `audio`, `noidungbaihoc`, `id_mucdo`, `id_loaitracnghiem`, `anh`, `noidungdapan`, `ten`, `diem`) VALUES
-(1, 1, '2019-05-10 10:08:56', '2019-05-11 06:16:15', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 2 chục cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+20=70 vậy đáp án là 70</span></p>', 'Phép Cộng 1', 0),
-(3, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:30', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 50 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+50=100 vậy đáp án là 100</span></p>', 'Phép Cộng 2', 0),
-(4, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:44', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 2, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 3', 0),
-(5, 1, '2019-05-10 17:00:00', '2019-05-11 06:37:58', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa.  Vậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>', 1, 2, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 4', 0);
 
 -- --------------------------------------------------------
 
@@ -92,14 +77,7 @@ CREATE TABLE `chitietlophoc_monhoc` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `chitietlophoc_monhoc`
---
 
-INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
-(2, 2, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
-(3, 1, 2, '2019-05-09 17:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -109,7 +87,8 @@ INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`
 Drop table if exists `chitietlop_user`;
 CREATE TABLE `chitietlop_user` (
   `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `id_lophoc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -125,20 +104,7 @@ CREATE TABLE `dapan` (
   `luachon` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `dapan`
---
 
-INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
-(1, 3, 0, '200'),
-(2, 3, 1, '100'),
-(3, 1, 1, '70'),
-(4, 1, 0, '60'),
-(5, 1, 0, '80'),
-(6, 1, 0, '90'),
-(7, 4, 1, '200'),
-(8, 4, 0, '300'),
-(9, 5, 1, '200');
 
 -- --------------------------------------------------------
 
@@ -148,8 +114,7 @@ INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
 Drop table if exists `loaibaihoc`;
 CREATE TABLE `loaibaihoc` (
   `id` int(11) NOT NULL,
-  `tenloaibaihoc` varchar(250) NOT NULL,
-  `id_taikhoan` int(11) NOT NULL
+  `tenloaibaihoc` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -163,13 +128,7 @@ CREATE TABLE `loaitracnghiem` (
   `tenloai` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `loaitracnghiem`
---
 
-INSERT INTO `loaitracnghiem` (`id`, `tenloai`) VALUES
-(1, 'Trắc Nghiệm'),
-(2, 'Điền');
 
 -- --------------------------------------------------------
 
@@ -183,13 +142,7 @@ CREATE TABLE `lophoc` (
   `anh` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `lophoc`
---
 
-INSERT INTO `lophoc` (`id`, `tenlophoc`, `anh`) VALUES
-(1, 'LỚP 1', ''),
-(2, 'LỚP 2', '');
 
 -- --------------------------------------------------------
 
@@ -215,13 +168,7 @@ CREATE TABLE `monhoc` (
   `anh` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `monhoc`
---
 
-INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
-(1, 'Toán', '0'),
-(2, 'Văn', '0');
 
 -- --------------------------------------------------------
 
@@ -236,13 +183,7 @@ CREATE TABLE `mucdo` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `mucdo`
---
 
-INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
-(1, 'Dễ', '2019-05-10 17:00:00', '0000-00-00 00:00:00'),
-(2, 'Bình Thường', '2019-05-11 04:34:50', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -256,13 +197,7 @@ CREATE TABLE `phanquyen` (
   `phanquyen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `phanquyen`
---
 
-INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
-(1, 1, 'user'),
-(2, 2, 'admin');
 
 -- --------------------------------------------------------
 
@@ -308,13 +243,7 @@ CREATE TABLE `users` (
   `ngaysing` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `users`
---
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
-(1, 'Phan Đinh THiên Phuc', 'dthienphuc147@gmail.com', NULL, 'phuc123456', NULL, 1, 1111111111, NULL, NULL),
-(2, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -502,6 +431,96 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
+(NULL, 'Phan Đinh THiên Phuc', 'dthienphuc147@gmail.com', NULL, 'phuc123456', NULL, 1, 1111111111, NULL, NULL),
+(NULL, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL),
+(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL);
+
+--
+-- Dumping data for table `phanquyen`
+--
+
+INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
+(NULL, 1, 'user'),
+(NULL, 2, 'admin');
+--
+-- Dumping data for table `mucdo`
+--
+
+INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
+(NULL, 'Dễ', '2019-05-10 17:00:00', '0000-00-00 00:00:00'),
+(NULL, 'Bình Thường', '2019-05-11 04:34:50', '0000-00-00 00:00:00');
+
+--
+-- Dumping data for table `monhoc`
+--
+
+INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
+(NULL, 'Toán', '0'),
+(NULL, 'Văn', '0');
+
+--
+-- Dumping data for table `lophoc`
+--
+
+INSERT INTO `lophoc` (`id`, `tenlophoc`, `anh`) VALUES
+(NULL, 'LỚP 1', ''),
+(NULL, 'LỚP 2', '');
+
+--
+-- Dumping data for table `loaitracnghiem`
+--
+
+INSERT INTO `loaitracnghiem` (`id`, `tenloai`) VALUES
+(NULL, 'Trắc Nghiệm'),
+(NULL, 'Điền');
+
+--
+-- Dumping data for table `dapan`
+--
+
+INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
+(NULL, 3, 0, '200'),
+(NULL, 3, 1, '100'),
+(NULL, 1, 1, '70'),
+(NULL, 1, 0, '60'),
+(NULL, 1, 0, '80'),
+(NULL, 1, 0, '90'),
+(NULL, 4, 1, '200'),
+(NULL, 4, 0, '300'),
+(NULL, 5, 1, '200');
+
+--
+-- Dumping data for table `chitietlophoc_monhoc`
+--
+
+INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`, `updated_at`) VALUES
+(NULL, 1, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
+(NULL, 2, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
+(NULL, 1, 2, '2019-05-09 17:00:00', '0000-00-00 00:00:00');
+
+--
+-- Dumping data for table `chitietbaihoc`
+--
+
+INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `video`, `audio`, `noidungbaihoc`, `id_mucdo`, `id_loaitracnghiem`, `anh`, `noidungdapan`, `ten`, `diem`) VALUES
+(NULL, 1, '2019-05-10 10:08:56', '2019-05-11 06:16:15', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 2 chục cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+20=70 vậy đáp án là 70</span></p>', 'Phép Cộng 1', 0),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:30', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 50 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+50=100 vậy đáp án là 100</span></p>', 'Phép Cộng 2', 0),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:44', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 2, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 3', 0),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:37:58', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa.  Vậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>', 1, 2, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 4', 0);
+
+--
+-- Dumping data for table `baihoc`
+--
+
+INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`, `updated_at`, `thoigian`, `anh`, `id_loaibai`) VALUES
+(NULL, 1, 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '', 0);
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
