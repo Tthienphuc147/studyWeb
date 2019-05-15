@@ -99,6 +99,7 @@ class baithiController extends Controller
                 
                 $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get();
                 $dataanw;
+                $dem=DB::table('baihoc')->where('id',$id)->get()->first();
                 $t=count($data);
                 for($i=0;$i<count($data);$i++)
                 {
@@ -123,8 +124,16 @@ class baithiController extends Controller
                     }
 
                 }
-            
-                return view('page.baithi')->with('data',$data)->with('dapan',$dataanw);
+                $dataa=NULL;
+                for($i=0;$i<count($data)&&$i<$dem->soluong;$i++)
+                {
+                    $dataa[$i]=$data[$i];
+                }
+                if($dataa!=NULL)
+                {
+                    return view('page.baithi')->with('data',$dataa)->with('dapan',$dataanw)->with('dem',$dem);
+                }
+                else return redirect('/');
             }
         }
         else

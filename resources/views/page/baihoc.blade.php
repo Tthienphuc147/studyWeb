@@ -37,7 +37,6 @@ Lớp học
 		style="padding:10px 5px;width:200px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
 		<h5 style="color:white;">{{ $datathi[0]->tenloaibaihoc }}</h5></button>
 			<div class="row">
-				{{$thongbao}}
                 <!-- course item -->
 				<?php $mytime1=Carbon\Carbon::now();?>
                 @foreach ($datathi as $item)

@@ -36,7 +36,8 @@ CREATE TABLE `baihoc` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `thoigian` datetime NOT NULL,
   `anh` text NOT NULL,
-  `id_loaibai` int(11) NOT NULL
+  `id_loaibai` int(11) NOT NULL,
+  `soluong` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -517,15 +518,15 @@ INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `vid
 -- Dumping data for table `baihoc`
 --
 
-INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`, `updated_at`, `thoigian`, `anh`, `id_loaibai`) VALUES
-(NULL, 1, 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '', 0),
-(NULL, '1', 'Thi Giữa Khóa', '2019-05-15 00:00:00', '0000-00-00 00:00:00.000000', '2019-05-20 00:00:00', '', '1');
+INSERT INTO `baihoc` (`id`, `id_chitietlophoc_monhoc`, `tenbaihoc`, `created_at`, `updated_at`, `thoigian`, `anh`, `id_loaibai`,`soluong`) VALUES
+(NULL, '1', 'Bài 1', '2019-05-09 17:00:00', '0000-00-00 00:00:00', '2019-05-10 00:00:00', '/public/img/course/1.jpg', '2','50'),
+(NULL, '1', 'Thi Giữa Khóa', '2019-05-15 00:00:00', '0000-00-00 00:00:00.000000', '2019-05-20 00:00:00', '/public/img/course/1.jpg', '1','50');
 
 --
 -- Dumping data for table `loaibaihoc`
 --
 
-INSERT INTO `baihoc` (`id`, `tenloaibaihoc`) VALUES
+INSERT INTO `loaibaihoc` (`id`, `tenloaibaihoc`) VALUES
 (NULL, 'Các Cuộc Thi'),
 (NULL, 'Bài Học');
 --
