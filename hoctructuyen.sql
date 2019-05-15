@@ -484,15 +484,15 @@ INSERT INTO `loaitracnghiem` (`id`, `tenloai`) VALUES
 --
 
 INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
-(NULL, 3, 0, '200'),
-(NULL, 3, 1, '100'),
+(NULL, 2, 0, '200'),
+(NULL, 2, 1, '100'),
 (NULL, 1, 1, '70'),
 (NULL, 1, 0, '60'),
 (NULL, 1, 0, '80'),
 (NULL, 1, 0, '90'),
-(NULL, 4, 1, '200'),
-(NULL, 4, 0, '300'),
-(NULL, 5, 1, '200');
+(NULL, 3, 1, '200'),
+(NULL, 3, 0, '300'),
+(NULL, 4, 1, '200');
 
 --
 -- Dumping data for table `chitietlophoc_monhoc`
@@ -508,10 +508,10 @@ INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`
 --
 
 INSERT INTO `chitietbaihoc` (`id`, `id_baihoc`, `created_at`, `updated_at`, `video`, `audio`, `noidungbaihoc`, `id_mucdo`, `id_loaitracnghiem`, `anh`, `noidungdapan`, `ten`, `diem`) VALUES
-(NULL, 1, '2019-05-10 10:08:56', '2019-05-11 06:16:15', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 2 chục cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+20=70 vậy đáp án là 70</span></p>', 'Phép Cộng 1', 0),
-(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:30', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 50 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+50=100 vậy đáp án là 100</span></p>', 'Phép Cộng 2', 0),
-(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:44', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 2, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 3', 0),
-(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:37:58', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa.  Vậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>', 1, 2, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 4', 0);
+(NULL, 1, '2019-05-10 10:08:56', '2019-05-11 06:16:15', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 2 chục cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+20=70 vậy đáp án là 70</span></p>', 'Phép Cộng 1', 20),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:30', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 50 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 1, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+50=100 vậy đáp án là 100</span></p>', 'Phép Cộng 2', 20),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:16:44', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa. \r\nVậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>\r\n', 2, 1, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 3', 20),
+(NULL, 1, '2019-05-10 17:00:00', '2019-05-11 06:37:58', '<iframe width=\"80%\" height=\"304\" src=\"https://www.youtube.com/embed/bj0NZxzprZQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '1.mp3', '<p><span style=\"font-size:18px\">Trong vườn cây ăn quả nhà bác Hồng trước đây có tất cả 50 cây vải. Mùa xuân vừa rồi bác trồng thêm 150 cây vải nữa.  Vậy hiện nay số cây vải có trong vườn nhà bác Hồng có tất cả ........... cây.</span></p>', 1, 2, '/public/img/course/1.jpg', '<p><span style=\"font-size:18px\">50+150=200 vậy đáp án là 200</span></p>', 'Phép Cộng 4', 20);
 
 --
 -- Dumping data for table `baihoc`

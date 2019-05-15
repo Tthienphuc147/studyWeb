@@ -18,6 +18,7 @@ Lớp học
                             <th>Họ Tên</th>
                             <th>Email</th>
                             <th>Số câu đúng</th>
+                            <th> Điểm </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,7 @@ Lớp học
                             <td>{{$data[$i]->name}}</td>
                             <td>{{$data[$i]->email}}</td>
                             <td>{{$point[$i]}}</td>
+                            <td>{{$values[$i]}}</td>
                         </tr>
                        @endfor
                     </tbody>

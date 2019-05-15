@@ -33,6 +33,7 @@ class baithiController extends Controller
                 ->join('users','chitietlop_user.id_user','=','users.id')
                 ->where('baihoc.id',$id)->orderby('chitietlop_user.id_user','asc')->get();
                 $point;
+                $values;
                 for($i=0;$i<count($datathisinh)-1;$i++)
                 {
                     if($datathisinh[$i]->id_user==$datathisinh[$i+1]->id_user)
@@ -51,19 +52,29 @@ class baithiController extends Controller
                             ->where('id_user',$datathisinh[$i]->id_user)
                             ->where('id_baihoc',$id)->get();
                             $pointi=0;
+                            $valuess=0;
                             foreach($datasub as $j)
                             {
                                 $pointi+=$j->ketqua;
+                                if($j->ketqua==1)
+                                {
+                                    $valuess+=$j->diem;
+                                }
                             }
                             $point[$i]=$pointi;
+                            $values[$i]=$valuess;
                         }
-                        else $point[$i]=0;
+                        else 
+                        {
+                            $point[$i]=0;
+                            $values[$i]=0;
+                        }
                 }
                 for($i=0;$i<count($datathisinh);$i++)
                 {
                     for($j=$i+1;$j<count($datathisinh);$j++)
                     {
-                        if($point[$j]>$point[$i])
+                        if($values[$j]>$values[$i])
                         {
                             $temp1=$point[$i];
                             $point[$i]=$point[$j];
@@ -71,10 +82,13 @@ class baithiController extends Controller
                             $temp2=$datathisinh[$i];
                             $datathisinh[$i]=$datathisinh[$j];
                             $datathisinh[$j]=$temp2;
+                            $temp3=$values[$i];
+                            $values[$i]=$values[$j];
+                            $values[$j]=$temp3;
                         }
                     }
                 }
-                return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point);
+                return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point)->with('values',$values);
             }
             else if(count($datathisinh)<1)
             {
@@ -166,6 +180,7 @@ class baithiController extends Controller
             ->join('users','chitietlop_user.id_user','=','users.id')
             ->where('baihoc.id',$id)->orderby('chitietlop_user.id_user','asc')->get();
             $point;
+            $values;
             for($i=0;$i<count($datathisinh)-1;$i++)
             {
                 if($datathisinh[$i]->id_user==$datathisinh[$i+1]->id_user)
@@ -176,22 +191,32 @@ class baithiController extends Controller
                 
             }
             for($i=0;$i<count($datathisinh);$i++)
-            {
-                    if($datathisinh[$i]!=NULL)
-                    {
-                        $datasub=DB::table('submit')
-                        ->join('chitietbaihoc','submit.id_chitietbaihoc','=','chitietbaihoc.id')
-                        ->where('id_user',$datathisinh[$i]->id_user)
-                        ->where('id_baihoc',$id)->get();
-                        $pointi=0;
-                        foreach($datasub as $j)
+                {
+                        if($datathisinh[$i]!=NULL)
                         {
-                            $pointi+=$j->ketqua;
+                            $datasub=DB::table('submit')
+                            ->join('chitietbaihoc','submit.id_chitietbaihoc','=','chitietbaihoc.id')
+                            ->where('id_user',$datathisinh[$i]->id_user)
+                            ->where('id_baihoc',$id)->get();
+                            $pointi=0;
+                            $valuess=0;
+                            foreach($datasub as $j)
+                            {
+                                $pointi+=$j->ketqua;
+                                if($j->ketqua==1)
+                                {
+                                    $valuess+=$j->diem;
+                                }
+                            }
+                            $point[$i]=$pointi;
+                            $values[$i]=$valuess;
                         }
-                        $point[$i]=$pointi;
-                    }
-                    else $point[$i]=0;
-            }
+                        else 
+                        {
+                            $point[$i]=0;
+                            $values[$i]=0;
+                        }
+                }
             for($i=0;$i<count($datathisinh);$i++)
             {
                 for($j=$i+1;$j<count($datathisinh);$j++)
@@ -207,7 +232,7 @@ class baithiController extends Controller
                     }
                 }
             }
-            return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point);
+            return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point)->with('values',$values);
         }
         else
         {
