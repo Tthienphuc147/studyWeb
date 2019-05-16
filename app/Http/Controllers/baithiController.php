@@ -26,69 +26,10 @@ class baithiController extends Controller
             ->where('id_baihoc',$id)
             ->where('users.id',$request->session()->get('id'))
             ->get();
-            if(count($datacheck)>0)
+            if(count($datathisinh)<1)return redirect("/");
+            if(count($datacheck)>0||Carbon::now('Asia/Ho_Chi_Minh')>$datathisinh[0]->thoigian)
             {
-                $datathisinh=DB::table('baihoc')
-                ->join('chitietlop_user','baihoc.id_chitietlophoc_monhoc','=','chitietlop_user.id_chitietlophoc_monhoc')
-                ->join('users','chitietlop_user.id_user','=','users.id')
-                ->where('baihoc.id',$id)->orderby('chitietlop_user.id_user','asc')->get();
-                $point;
-                $values;
-                for($i=0;$i<count($datathisinh)-1;$i++)
-                {
-                    if($datathisinh[$i]->id_user==$datathisinh[$i+1]->id_user)
-                    {
-                        $datathisinh[$i]=NULL;
-                    }
-                    
-                    
-                }
-                for($i=0;$i<count($datathisinh);$i++)
-                {
-                        if($datathisinh[$i]!=NULL)
-                        {
-                            $datasub=DB::table('submit')
-                            ->join('chitietbaihoc','submit.id_chitietbaihoc','=','chitietbaihoc.id')
-                            ->where('id_user',$datathisinh[$i]->id_user)
-                            ->where('id_baihoc',$id)->get();
-                            $pointi=0;
-                            $valuess=0;
-                            foreach($datasub as $j)
-                            {
-                                $pointi+=$j->ketqua;
-                                if($j->ketqua==1)
-                                {
-                                    $valuess+=$j->diem;
-                                }
-                            }
-                            $point[$i]=$pointi;
-                            $values[$i]=$valuess;
-                        }
-                        else 
-                        {
-                            $point[$i]=0;
-                            $values[$i]=0;
-                        }
-                }
-                for($i=0;$i<count($datathisinh);$i++)
-                {
-                    for($j=$i+1;$j<count($datathisinh);$j++)
-                    {
-                        if($values[$j]>$values[$i])
-                        {
-                            $temp1=$point[$i];
-                            $point[$i]=$point[$j];
-                            $point[$j]=$temp1;
-                            $temp2=$datathisinh[$i];
-                            $datathisinh[$i]=$datathisinh[$j];
-                            $datathisinh[$j]=$temp2;
-                            $temp3=$values[$i];
-                            $values[$i]=$values[$j];
-                            $values[$j]=$temp3;
-                        }
-                    }
-                }
-                return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point)->with('values',$values);
+                return redirect("/showranking/$id");
             }
             else if(count($datathisinh)<1)
             {
@@ -178,13 +119,28 @@ class baithiController extends Controller
 
                     }
                 }
-                $datasub= new submit();
-                $datasub->ketqua=$check;
-                $datasub->id_chitietbaihoc=$data[$j]->id;
-                $datasub->id_user=$request->session()->get('id');
-                $datasub->save();
+                $d=DB::table('submit')->where('id_chitietbaihoc',$data[$j]->id)->where('id_user',$request->session()->get('id'))->get();
+                if(count($d)<1)
+                {
+                    $datasub= new submit();
+                    $datasub->ketqua=$check;
+                    $datasub->id_chitietbaihoc=$data[$j]->id;
+                    $datasub->id_user=$request->session()->get('id');
+                    $datasub->save();
+                }
             }
-            $datathisinh=DB::table('baihoc')
+            return redirect("/showranking/$id");
+        }
+        else
+        {
+            return redirect('/login');
+        }
+        
+
+    }
+    public function showranking($id)
+    {
+        $datathisinh=DB::table('baihoc')
             ->join('chitietlop_user','baihoc.id_chitietlophoc_monhoc','=','chitietlop_user.id_chitietlophoc_monhoc')
             ->join('users','chitietlop_user.id_user','=','users.id')
             ->where('baihoc.id',$id)->orderby('chitietlop_user.id_user','asc')->get();
@@ -226,29 +182,25 @@ class baithiController extends Controller
                             $values[$i]=0;
                         }
                 }
-            for($i=0;$i<count($datathisinh);$i++)
-            {
-                for($j=$i+1;$j<count($datathisinh);$j++)
+                for($i=0;$i<count($datathisinh);$i++)
                 {
-                    if($point[$j]>$point[$i])
+                    for($j=$i+1;$j<count($datathisinh);$j++)
                     {
-                        $temp1=$point[$i];
-                        $point[$i]=$point[$j];
-                        $point[$j]=$temp1;
-                        $temp2=$datathisinh[$i];
-                        $datathisinh[$i]=$datathisinh[$j];
-                        $datathisinh[$j]=$temp2;
+                        if($values[$j]>$values[$i])
+                        {
+                            $temp1=$point[$i];
+                            $point[$i]=$point[$j];
+                            $point[$j]=$temp1;
+                            $temp2=$datathisinh[$i];
+                            $datathisinh[$i]=$datathisinh[$j];
+                            $datathisinh[$j]=$temp2;
+                            $temp3=$values[$i];
+                            $values[$i]=$values[$j];
+                            $values[$j]=$temp3;
+                        }
                     }
                 }
-            }
             return view('page.rankingcontest')->with('data',$datathisinh)->with('point',$point)->with('values',$values);
-        }
-        else
-        {
-            return redirect('/login');
-        }
-        
-
     }
 
 

@@ -139,6 +139,7 @@
             this.deciseconds = 0;
             this.reset();
             this.defaults.end();
+            document.forms["quiz"].submit();
         },
 
         destroy: function () {

@@ -381,7 +381,7 @@ Bài học
 
 
 	<!-- Blog page section  -->
-	<section class="blog-page-section spad pt-0">
+	<section class="blog-page-section spad pt-0" >
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
@@ -403,7 +403,7 @@ Bài học
                                      <?php $i=0;?>
 									</div>
 									<div class="modal-body">
-<form action=<?php if(count($data)>0){?>"/checkbaithi/{{ $data[0]->id_baihoc }}"<?php };$i=0;?> method="POST">
+<form name="quiz"action=<?php if(count($data)>0){?>"/checkbaithi/{{ $data[0]->id_baihoc }}"<?php };$i=0;?> method="POST">
 
 									    <div class="quiz" id="quiz" data-toggle="buttons">
                                                 {{ csrf_field() }}

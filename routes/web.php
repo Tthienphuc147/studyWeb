@@ -22,5 +22,6 @@ Route::post('/login','loginController@LoginAuth');
 Route::get('/logout','loginController@Logout');
 Route::get('/baithi/{id}','baithiController@show');
 Route::post('/checkbaithi/{id}','baithiController@test');
+route::get('/showranking/{id}','baithiController@showranking');
 
 
