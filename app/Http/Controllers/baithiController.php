@@ -111,7 +111,7 @@ class baithiController extends Controller
                 else
                 {
                     foreach ($dapan as $i) {
-                        if($request->input("$i->id")==NULL||$request->input("$i->id")!=$i->luachon)
+                        if($request->input("$i->id")==NULL||strtoupper($request->input("$i->id"))!=strtoupper($i->luachon))
                         {
                             $check=0;
                             break;
@@ -122,11 +122,14 @@ class baithiController extends Controller
                 $d=DB::table('submit')->where('id_chitietbaihoc',$data[$j]->id)->where('id_user',$request->session()->get('id'))->get();
                 if(count($d)<1)
                 {
-                    $datasub= new submit();
-                    $datasub->ketqua=$check;
-                    $datasub->id_chitietbaihoc=$data[$j]->id;
-                    $datasub->id_user=$request->session()->get('id');
-                    $datasub->save();
+                    if($check==1)
+                    {
+                        $datasub= new submit();
+                        $datasub->ketqua=$check;
+                        $datasub->id_chitietbaihoc=$data[$j]->id;
+                        $datasub->id_user=$request->session()->get('id');
+                        $datasub->save();
+                    }
                 }
             }
             return redirect("/showranking/$id");

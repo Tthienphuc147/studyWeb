@@ -404,11 +404,11 @@ Bài học
 									</div>
 									<div class="modal-body">
 <form name="quiz"action=<?php if(count($data)>0){?>"/checkbaithi/{{ $data[0]->id_baihoc }}"<?php };$i=0;?> method="POST">
-
-									    <div class="quiz" id="quiz" data-toggle="buttons">
+                                        @foreach($data as $itemm)
+									    <div class="quiz" id="quiz" data-toggle="buttons" style="margin-bottom:30px;">
                                                 {{ csrf_field() }}
-                                            @foreach($data as $itemm)
-                                            <h3>{!! $itemm->noidungbaihoc !!}</h3>
+                                            
+                                            <h3>Câu {{$i+1}}: {!! $itemm->noidungbaihoc !!}</h3>
                                             @if($itemm->id_loaitracnghiem==1)    
                                                 @foreach ($dapan[$i] as $item)
                                                 <label class="element-animation1 btn btn-lg btn-block" style="background-color: #f6783a;color:white"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="checkbox" name="{{ $item->id }}"  > {{ $item->luachon }}</label>
@@ -429,14 +429,16 @@ Bài học
 
                                             @endif
                                             <?php $i++;?>
-                                            @endforeach
+                                        </div>
+                                        @endforeach
                                                <button type="submit" class="btn" style="background-color: #f9996a;color:white;margin-top: 20px">NỘP BÀI</button><br/>
                                                
+                                        
+
+
+
+								        
                                         </form>
-
-
-
-								        </div>
                                     </div>
                                     
 							   <div class="modal-footer text-muted">
