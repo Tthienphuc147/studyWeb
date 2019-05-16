@@ -52,9 +52,9 @@ Lớp học
 					<h5>Time  End  : {{$item->thoigian}}</h5>
 					@if($item->created_at>$mytime1)
 					<button type="button" class="btn peach-gradient btn-lg" 
-		style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+		style="padding:10px 5px;width:300px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
 					<div countdown="" data-date="{{$item->created_at}}"style="color:#BB3300;">
-					Start In: <span data-days="">00</span> ngày 
+					<span data-days="">00</span> ngày 
 								<span data-hours="">00</span> giờ 
 								<span data-minutes="">00</span> phút 
 								<span data-seconds="">00</span> giây
@@ -62,9 +62,9 @@ Lớp học
 					</button>
 					@elseif($item->thoigian>$mytime1)
 					<button type="button" class="btn peach-gradient btn-lg" 
-		style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+		style="padding:10px 5px;width:300px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
 					<div countdown="" data-date="{{$item->thoigian}}" style="color:#CCFFCC;" >
-					Starting : <span data-days="">00</span> ngày 
+					 <span data-days="">00</span> ngày 
 								<span data-hours="">00</span> giờ 
 								<span data-minutes="">00</span> phút 
 								<span data-seconds="">00</span> giây
