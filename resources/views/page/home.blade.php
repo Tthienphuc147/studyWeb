@@ -137,33 +137,108 @@ Home
 
 	<!-- Courses section -->
 	<section class="courses-section spad">
-		<div class="container">
-			<div class="section-title text-center">
-				<h3>OUR COURSES</h3>
-				<p>Building a better world, one course at a time</p>
-			</div>
-			<div class="row">
-                <!-- course item -->
-                @foreach ($datalophoc as $item)
-                <div class="col-lg-4 col-md-6 course-item">
-					<div class="course-thumb">
-                        <a href="/lophoc/{{$item['id']}}"><img src="public/img/course/1.jpg" alt=""></a>
+            @if (request()->session()->has('id_lophoc'))
+            <div class="container">
+                    <div class="section-title text-center">
+                        <h3>LỚP HỌC</h3>
 
-						<div class="course-cat">
-                        <span>{{ $item['tenlophoc'] }}</span>
-						</div>
-					</div>
-					<div class="course-info">
+                    </div>
 
-						<h4 class="cource-price">$100<span>/month</span></h4>
-					</div>
-				</div>
-                @endforeach
+                    <button type="button" class="btn peach-gradient btn-lg"
+                    style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+                    <h5 style="color:white;">Những lớp học được mở</h5></button>
+                    <div class="row">
+                        <!-- course item -->
 
-				<!-- course item -->
+                        @foreach ($datalophoc as $key=>$item)
+                        <div class="col-lg-4 col-md-6 course-item">
+                            @if (request()->session()->has('id_lophoc'))
+                            <div class="course-thumb">
+                                <a href="/lophoc/{{$item['id']}}"><img src="public/img/course/1.jpg" alt="" ></a>
 
-			</div>
-		</div>
+                                <div class="course-cat">
+                                <span>{{ $item['tenlophoc'] }}</span>
+                                </div>
+                            </div>
+                            @php
+                                $key++
+                            @endphp
+                                @if ($key>=request()->session()->get('id_lophoc'))
+                                @break
+                                @endif
+
+                            @endif
+                        </div>
+                        @endforeach
+
+
+                        <!-- course item -->
+
+                    </div>
+
+                </div>
+                <button type="button" class="btn peach-gradient btn-lg"
+                style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
+                <h5 style="color:white;">Những lớp học bị khóa</h5></button>
+                <div class="row">
+                        <!-- course item -->
+                        @php
+                            $data=array_splice($datalophoc,request()->session()->get('id_lophoc'),count($datalophoc));
+                        @endphp
+                        @foreach ($data as $key=>$item)
+                        <div class="col-lg-4 col-md-6 course-item">
+
+
+                             <div class="course-thumb">
+                                   <img src="public/img/course/1.jpg" alt="" style="opacity:0.2">
+
+                                    <div class="course-cat">
+                                    <span>{{ $item['tenlophoc'] }} <i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+
+
+
+
+                        </div>
+                        @endforeach
+
+
+                        <!-- course item -->
+
+                </div>
+            @else
+            <div class="container">
+                    <div class="row">
+                            <!-- course item -->
+
+                            @foreach ($datalophoc as $key=>$item)
+                            <div class="col-lg-4 col-md-6 course-item">
+
+
+                                 <div class="course-thumb">
+                                        <a href="/loginview"><img src="public/img/course/1.jpg" alt="" ></a>
+
+                                        <div class="course-cat">
+                                        <span>{{ $item['tenlophoc'] }} </i></span>
+                                        </div>
+                                    </div>
+
+
+
+
+                            </div>
+                            @endforeach
+
+
+                            <!-- course item -->
+
+                    </div>
+            </div>
+
+            @endif
+
+
 	</section>
 	<!-- Courses section end-->
 

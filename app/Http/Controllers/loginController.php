@@ -15,7 +15,7 @@ class loginController extends Controller
     public function LoginAuth(Request $request){
         $email = $request->input('email');
         $pass=$request->input('password');
-        $data=DB::table('users')
+        $data=DB::table('users') ->join('chitietlop_user','users.id','=','chitietlop_user.id_user')->join('chitietlophoc_monhoc','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
         ->where('email',$email)
         ->get();
 
@@ -35,12 +35,13 @@ class loginController extends Controller
             foreach($data as $account) {
                 if($pass == $account->password ){
                     $request->session()->put('login', true);
-                    $request->session()->put('id', $account->id);
+                    $request->session()->put('id', $account->id_user);
                     $request->session()->put('namelogin', $account->name);
                     $request->session()->put('email', $account->email);
-                   
+                    $request->session()->put('id_lophoc',$account->id_lophoc);
+                    $request->session()->put('id_taikhoan',$account->id_taikhoan);
                     $success=true;
-                    
+
                     return redirect('/');
                     break;
 
