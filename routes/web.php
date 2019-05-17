@@ -23,5 +23,7 @@ Route::get('/logout','loginController@Logout');
 Route::get('/baithi/{id}','baithiController@show');
 Route::post('/checkbaithi/{id}','baithiController@test');
 route::get('/showranking/{id}','baithiController@showranking');
-
+Route::resource('users','UsersController');
+Route::get('users/{id}','UsersController@show');
+Route::get('/ranking','UsersController@showranking');
 
