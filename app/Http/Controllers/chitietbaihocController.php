@@ -40,7 +40,7 @@ class chitietbaihocController extends Controller
                 $temp2[$i]=1;
             }
         }
-       var_dump($temp2);
+ 
 
 
         for($i=1;$i<count($mucdo);$i++)
