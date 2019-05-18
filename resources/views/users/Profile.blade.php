@@ -3,9 +3,7 @@
 Thông tin cá nhân	
 @endsection
 @section('content')
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+
 <style> 
 body {
 	background-color: #e1e0db;
@@ -141,8 +139,7 @@ img.portrait {
 	color: black;
 }
 </style>
-</head>
-<body>
+
     <!-- Begin Paper -->
     <div id="paper">
       <div class="paper-top"></div>
@@ -184,6 +181,5 @@ img.portrait {
       <div class="paper-bottom"></div>
     </div>
     <!-- End Paper -->
-</body>
-</html>
+
 @endsection

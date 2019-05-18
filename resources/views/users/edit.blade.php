@@ -6,10 +6,7 @@ Cập nhật thông tin cá nhân
 	@if(Session::has('message'))
 		<p>{{Session::get('message')}}</p>
 	@endif
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
+
 	<style>
 	.col-25{
     float:left;
@@ -83,8 +80,7 @@ form .txtarea:focus {
 		background:#e3edec;
 	}
 	</style>
-	</head>
-	<body>
+
 		<div class="paper">
 		<div class="form-info">
 		<form method="post" action="{{route('users.update',$user)}}">
@@ -118,6 +114,5 @@ form .txtarea:focus {
 		</form>
 		</div>
 		</div>
-	</body>
-	</html>
+
 @endsection

@@ -418,9 +418,11 @@ Bài học
                                                <button type="submit" class="btn" style="background-color: #f9996a;color:white;margin-top: 20px">KIỂM TRA</button><br/>
                                                @if($anw==1)
                                                <label>Rất tiếc câu trả lời của bạn không đúng. 
-                                               @if($tinh==1)Bạn có muốn xem hướng dẫn giải không?
+                                               @if($tinh<4)Bạn có muốn xem hướng dẫn giải không?
                                                </label><br/>
                                                <button type="submit" class="btn" style="background-color: #990033;color:white;margin-top: 20px">XEM NGAY</button>
+                                               @if($tinh<2) <a href="/ctbaihoc/{{ $data->id_baihoc }}/{{ $idb }}/{{$tinh}}"><button  class="btn" style="background-color: #990033;color:white;margin-top: 20px">TIẾP TỤC LÀM</button></a>
+                                               @endif
                                                @endif
                                                @endif
                                         </form>
@@ -429,7 +431,7 @@ Bài học
 
 								        </div>
                                     </div>
-                                    @if($anw==1&&$tinh>1)
+                                    @if($anw==1&&$tinh>3)
                                     <button  class="btn" style="background-color: #990033;color:white;margin-top: 20px">ĐÁP ÁN</button>
                                     <div class="modal-header">
 

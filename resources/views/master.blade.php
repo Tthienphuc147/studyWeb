@@ -16,12 +16,10 @@
     <link rel="stylesheet" href="{{ asset('public/css/owl.carousel.css') }} ">
     <link rel="stylesheet" href="{{ asset('public/css/style.css') }} ">
     <link rel="stylesheet" href="{{ asset('public/css/loginStyle/loginStyle.css') }} ">
-    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-
+   
 </head>
 <body>
 @include('block.header')
-
 
 @yield('content')
 
