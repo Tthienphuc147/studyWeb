@@ -470,7 +470,17 @@ INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
 
 INSERT INTO `lophoc` (`id`, `tenlophoc`, `anh`) VALUES
 (NULL, 'LỚP 1', ''),
-(NULL, 'LỚP 2', '');
+(NULL, 'LỚP 2', ''),
+(NULL, 'LỚP 3', ''),
+(NULL, 'LỚP 4', ''),
+(NULL, 'LỚP 5', ''),
+(NULL, 'LỚP 6', ''),
+(NULL, 'LỚP 7', ''),
+(NULL, 'LỚP 8', ''),
+(NULL, 'LỚP 9', ''),
+(NULL, 'LỚP 10', ''),
+(NULL, 'LỚP 11', ''),
+(NULL, 'LỚP 12', '');
 
 --
 -- Dumping data for table `loaitracnghiem`

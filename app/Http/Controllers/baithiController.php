@@ -24,7 +24,7 @@ class baithiController extends Controller
             ->join('submit','chitietbaihoc.id','=','submit.id_chitietbaihoc')
             ->join('users','submit.id_user','=','users.id')
             ->where('id_baihoc',$id)
-            ->where('users.id',$request->session()->get('id'))
+            ->where('id_user',$request->session()->get('id'))
             ->get();
             if(count($datathisinh)<1)return redirect("/");
             if(count($datacheck)>0||Carbon::now('Asia/Ho_Chi_Minh')>$datathisinh[0]->thoigian)
