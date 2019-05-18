@@ -17,10 +17,17 @@
     <div class="container">
         <div class="nav-right">
             @if (request()->session()->has('id'))
-            
-            <a href="/logout"> Xin chào, {{request()->session()->get('namelogin')}} <button class="btn">Đăng Xuất</button></a>
+
+            <div class="dropdown">
+                    <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"> {{ request()->session()->get('namelogin') }}</i></button>
+                    <div class="dropdown-content">
+                    <a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a>
+                    <a href="/editprofile/{{ request()->session()->get('id') }}">Sửa tài khoản</a>
+                    <a href="/logout">Đăng xuất</a>
+                    </div>
+                  </div>
             @else
-            <a href="/loginview"><button class="btn">Đăng nhập</button></a>
+            <a href="/loginview"><button class="btn btn-sm login">Đăng nhập</button></a>
             @endif
 
 
@@ -30,7 +37,9 @@
             <li><a href="/">Lớp học</a></li>
             <li><a href="/">Kiểm tra</a></li>
             <li><a href="/">Liên hệ</a></li>
-	        <li><a href="/ranking">Bảng xếp hạng</a></li>
+            <li><a href="/ranking">Bảng xếp hạng</a></li>
+
+
         </ul>
     </div>
 </nav>

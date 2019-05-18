@@ -11,8 +11,10 @@ class chitietbaihocController extends Controller
 {
 
 
-    public function show($id)
+    public function show($id,Request $request)
     {
+        if( $request->session()->has('id'))
+        {
         $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get()->toArray();
         $mucdo=DB::table('mucdo')
         ->leftjoin('chitietbaihoc', 'mucdo.id', '=', 'chitietbaihoc.id_mucdo')
@@ -40,7 +42,7 @@ class chitietbaihocController extends Controller
                 $temp2[$i]=1;
             }
         }
- 
+
 
 
         for($i=1;$i<count($mucdo);$i++)
@@ -55,54 +57,61 @@ class chitietbaihocController extends Controller
         $tieude=DB::table('baihoc')->where('id',$id)->first();
 
         return view('page.baihoccuthe')->with('data',$data)->with('tieude',$tieude)->with('idbaihoc',$id)->with('mucdo',$mucdo)->with('temp',$temp2);
+    }
+    return Redirect('/loginview');
 
     }
-    public function showbaichitiet($id,$idb,$tinh)
+    public function showbaichitiet($id,$idb,$tinh,Request $request)
     {
+        if( $request->session()->has('id'))
+        {
         $tinh++;
         $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get();
         $tieude=DB::table('baihoc')->where('id',$id)->first();
         $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data[$idb]->id)->get();
         return view('page.chitietbaihoc')->with('data',$data[$idb])->with('tieude',$tieude)
         ->with('dapan',$dapan)->with('anw',0)->with('idb',$idb)->with('tinh',$tinh);
+        }
+        return Redirect('/loginview');
     }
     public function check($id,$idb,$tinh,Request $request){
+        if( $request->session()->has('id'))
+        {
         $data=DB::table('chitietbaihoc')->where('id_baihoc',$id)->get();
         $tieude=DB::table('baihoc')->where('id',$data[$idb]->id_baihoc)->first();
         $dapan=DB::table('dapan')->where('id_chitietbaihoc',$data[$idb]->id)->get();
         $check=1;
         $tinh++;
         if($data[$idb]->id_loaitracnghiem==1)
-        {
+            {
 
 
-            foreach ($dapan as $i) {
+                foreach ($dapan as $i) {
 
-                if(($request->input("$i->id")==NULL&&$i->dapan==1)||($request->input("$i->id")!=NULL&&$i->dapan==0))
-                {
-                    $check=0;
-                    break;
+                    if(($request->input("$i->id")==NULL&&$i->dapan==1)||($request->input("$i->id")!=NULL&&$i->dapan==0))
+                    {
+                        $check=0;
+                        break;
+                    }
                 }
             }
-        }
         else
-        {
-            foreach ($dapan as $i) {
-                if($request->input("$i->id")==NULL||strtoupper($request->input("$i->id"))!=strtoupper($i->luachon))
-                {
-                    $check=0;
-                    break;
-                }
+            {
+                foreach ($dapan as $i) {
+                    if($request->input("$i->id")==NULL||strtoupper($request->input("$i->id"))!=strtoupper($i->luachon))
+                    {
+                        $check=0;
+                        break;
+                    }
 
+                }
             }
-        }
         $datasub= new submit();
         $datasub->ketqua=$check;
         $datasub->id_chitietbaihoc=$data[$idb]->id;
         $datasub->id_user=$request->session()->get('id');
         $datasub->save();
         if($check==1)
-
         {
             if($idb<count($data)-1)
             {
@@ -128,6 +137,8 @@ class chitietbaihocController extends Controller
            ->with('dapan',$dapan)->with('anw',1)->with('tinh',$tinh);
 
         }
+    }
+    return Redirect('/loginview');
     }
 
 

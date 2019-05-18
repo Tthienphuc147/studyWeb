@@ -25,22 +25,42 @@ Lớp học
                     	@foreach ($data1 as $item)
                             @if($itemmucdo->id_mucdo==$item->id_mucdo)
                                 <div class="col-lg-4 col-md-6 course-item">
+                                        @if ($temp[$i]==1)
                                     <div class="course-thumb">
-                                        <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt=""></a>
+                                        <div class="pic-bt">
+                                                <p>HOÀN THÀNH</p>
+                                                <img src="{{ $item->anh }}" alt="" >
+                                        </div>
+
                                         <div class="course-cat">
-                                        <span>{{ $item->ten }} <br><button class="btn btn-sm btn-light">
-                                                @if ($temp[$i]==1)
-                                                <p>Accept</p>
-                                            @elseif(($temp[$i]==0))
-                                            <p>Wrong</p>
-                                            @else
-                                            Học thử
-                                            @endif
+                                        <span>{{ $item->ten }} <br>
                                           </button></span>
                                         </div>
 
-
                                     </div>
+                                    @elseif($temp[$i]==0)
+                                    <div class="course-thumb">
+                                            <div class="pic-bt">
+                                                    <p>CHƯA HOÀN THÀNH</p>
+                                                    <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt=""></a>
+                                            </div>
+
+                                            <div class="course-cat">
+                                            <span>{{ $item->ten }} <br>
+                                              </button></span>
+                                            </div>
+                                        </div>
+                                        @else
+                                        <div class="course-thumb">
+                                                <div class="pic-bt">
+
+                                                        <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt="" class="pic-bt1"></a>
+                                                </div>
+                                                <div class="course-cat">
+                                                <span>{{ $item->ten }} <br></span>
+                                                </div>
+                                            </div>
+                                    @endif
 
                                 </div>
                             @endif
@@ -50,7 +70,12 @@ Lớp học
                          @if($itemmucdo->id_mucdo==$item->id_mucdo)
                              <div class="col-lg-4 col-md-6 course-item">
                                  <div class="course-thumb">
-                                     <img src="{{ $item->anh }}" alt="" style="opacity: 0.2">
+                                        <div class="pic-bt">
+
+
+                                                <img src="{{ $item->anh }}" alt="" >
+                                        </div>
+
                                      <div class="course-cat">
                                      <span>{{ $item->ten }} <i class="fa fa-lock" aria-hidden="true"></i></span>
                                      </div>
@@ -62,27 +87,47 @@ Lớp học
                       @endforeach
 
                     @else
-                        @foreach ($data as $item)
-                            @if($itemmucdo->id_mucdo==$item->id_mucdo)
-                                <div class="col-lg-4 col-md-6 course-item">
-                                    <div class="course-thumb">
-                                        <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt=""></a>
+                    @foreach ($data as $item)
+                    @if($itemmucdo->id_mucdo==$item->id_mucdo)
+                        <div class="col-lg-4 col-md-6 course-item">
+                                @if ($temp[$i]==1)
+                            <div class="course-thumb">
+                                    <div class="pic-bt">
+                                            <p>HOÀN THÀNH</p>
+                                            <img src="{{ $item->anh }}" alt="" >
+                                    </div>
+                                <div class="course-cat">
+                                <span>{{ $item->ten }} <br></span>
+                                </div>
+
+                            </div>
+
+                            @elseif($temp[$i]==0)
+                            <div class="course-thumb">
+                                    <div class="pic-bt">
+                                            <p>CHƯA HOÀN THÀNH</p>
+                                            <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt=""></a>
+                                    </div>
+                                    <div class="course-cat">
+                                    <span>{{ $item->ten }} <br></span>
+                                    </div>
+                                </div>
+                                @else
+                                <div class="course-thumb">
+                                        <div class="pic-bt">
+
+                                                <a href="/ctbaihoc/{{ $idbaihoc}}/{{ $i }}/-1"><img src="{{ $item->anh }}" alt="" class="pic-bt1"></a>
+                                        </div>
                                         <div class="course-cat">
-                                                <span>{{ $item->ten }} <br><button class="btn btn-sm btn-light">
-                                                        @if ($temp[$i]==1)
-                                                        <p>Accept</p>
-                                                    @elseif(($temp[$i]==0))
-                                                    <p>Wrong</p>
-                                                    @else
-                                                    Chưa làm
-                                                    @endif
+                                        <span>{{ $item->ten }} <br></span>
                                         </div>
                                     </div>
-
-                                </div>
                             @endif
-                            <?php $i++ ?>
-                        @endforeach
+
+                        </div>
+                    @endif
+                <?php $i++ ?>
+                 @endforeach
                     @endif
 
 
