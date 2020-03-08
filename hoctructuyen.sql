@@ -194,7 +194,6 @@ CREATE TABLE `mucdo` (
 Drop table if exists `phanquyen`;
 CREATE TABLE `phanquyen` (
   `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
   `phanquyen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -232,6 +231,7 @@ CREATE TABLE `taikhoan` (
 Drop table if exists `users`;
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `role` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -436,21 +436,20 @@ ALTER TABLE `users`
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
-(NULL, 'Phan Đinh Thiên Phúc', 'dthienphuc147@gmail.com', NULL, 'phuc', NULL, 1, 1111111111, NULL, NULL),
-(NULL, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL),
-(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 2, 1, NULL, NULL),
-(NULL, 'admin', 'admin@gmail.com', NULL, 'admin', NULL, NULL, 1, NULL, NULL),
-(NULL, 'teacher', 'teacher@gmail.com', NULL, 'teacher', NULL, NULL, 1, NULL, NULL);
+INSERT INTO `users` (`id`, `name`,`role`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
+(NULL, 'Phan Đinh Thiên Phúc',1, 'dthienphuc147@gmail.com', NULL, 'phuc', NULL, 1, 1111111111, NULL, NULL),
+(NULL, 'Bùi Trọng Nghĩa',1, 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 2, 1, NULL, NULL),
+(NULL, 'admin',2, 'admin@gmail.com', NULL, 'admin', NULL, NULL, 1, NULL, NULL),
+(NULL, 'teacher',3, 'teacher@gmail.com', NULL, 'teacher', NULL, NULL, 1, NULL, NULL);
 
 --
 -- Dumping data for table `phanquyen`
 --
 
-INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
-(NULL, 1, 'user_role'),
-(NULL, 4, 'admin_role'),
-(NULL, 5, 'teacher_role');
+INSERT INTO `phanquyen` (`id`, `phanquyen`) VALUES
+(NULL,'user_role'),
+(NULL,'admin_role'),
+(NULL,'teacher_role');
 --
 -- Dumping data for table `mucdo`
 --
@@ -594,7 +593,7 @@ INSERT INTO `loaibaihoc` (`id`, `tenloaibaihoc`) VALUES
 -- Dumping data for table `chitietlop_user`
 --
 INSERT INTO `chitietlop_user` (`id`, `id_user`, `id_chitietlophoc_monhoc`)
-VALUES (NULL, '3', '1'),
+VALUES (NULL, '2', '1'),
 (NULL, '1', '1');
 
 COMMIT;

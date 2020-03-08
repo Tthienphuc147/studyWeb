@@ -17,6 +17,7 @@ class loginController extends Controller
         $pass=$request->input('password');
         $data=DB::table('users') ->join('chitietlop_user','users.id','=','chitietlop_user.id_user')->join('chitietlophoc_monhoc','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
         ->where('email',$email)
+        ->select('users.*','chitietlophoc_monhoc.id_lophoc')
         ->get();
 
         $this->validate($request,
@@ -31,11 +32,10 @@ class loginController extends Controller
                 'password.max' => 'Mật Khẩu gồm tối đa 32 ký tự!'
             ]);
                 $success=false;
-                var_dump($data);
             foreach($data as $account) {
                 if($pass == $account->password ){
                     $request->session()->put('login', true);
-                    $request->session()->put('id', $account->id_user);
+                    $request->session()->put('id', $account->id);
                     $request->session()->put('namelogin', $account->name);
                     $request->session()->put('email', $account->email);
                     $request->session()->put('id_lophoc',$account->id_lophoc);

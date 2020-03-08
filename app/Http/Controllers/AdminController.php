@@ -22,8 +22,9 @@ class AdminController extends Controller
         $email = $request->input('email');
         $pass=$request->input('password');
         $data=DB::table('users')
-        ->join('phanquyen','phanquyen.id_user','=','users.id')
+        ->rightJoin('phanquyen','phanquyen.id','=','users.role')
         ->where('email',$email)
+        ->select('users.*')
         ->get();
 
         $this->validate($request,
@@ -41,20 +42,20 @@ class AdminController extends Controller
             foreach($data as $account) {
                 if($pass == $account->password ){
                     $request->session()->put('login', true);
-                    $request->session()->put('id', $account->id_user);
+                    $request->session()->put('id', $account->id);
                     $request->session()->put('namelogin', $account->name);
                     $request->session()->put('email', $account->email);
-                    $request->session()->put('role',$account->phanquyen);
+                    $request->session()->put('role',$account->role);
                     $success=true;
-                    switch($account->phanquyen)
+                    switch($account->role)
                     {
-                        case 'user_role':
+                        case 1:
                             return redirect('/showAdmin');
                         break;
-                        case 'admin_role':
+                        case 2:
                             return redirect('/showViewAdmin');
                         break;
-                        case 'teacher_role':
+                        case 3:
                             return redirect('/showViewAdmin');
                         break;
 
