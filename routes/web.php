@@ -28,3 +28,5 @@ Route::get('users/{id}','UsersController@show');
 Route::get('editprofile/{id}','UsersController@edit');
 Route::get('/ranking','UsersController@showranking');
 
+
+
