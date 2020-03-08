@@ -12,7 +12,6 @@
 */
 
 Route::get('/','homeController@showHome');
-Route::get('/showAdmin','AdminController@show');
 Route::get('/lophoc/{id}','LopHocController@show');
 Route::get('/baihoc/{id}/{id1}','baihocController@show');
 Route::get('/ctbaihoc/{id}','chitietbaihocController@show');
@@ -28,6 +27,12 @@ Route::resource('users','UsersController');
 Route::get('users/{id}','UsersController@show');
 Route::get('editprofile/{id}','UsersController@edit');
 Route::get('/ranking','UsersController@showranking');
+
+//admin
+Route::get('/showAdmin','AdminController@showLogin');
+Route::get('/showViewAdmin','AdminController@show');
+Route::get('/showAdmin/logout','AdminController@LogOut');
+Route::post('/showAdmin/loginAdmin','AdminController@LoginAuth');
 
 
 

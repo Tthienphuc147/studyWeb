@@ -46,9 +46,6 @@ class loginController extends Controller
                     break;
 
                 }
-                else if(($pass == $account->password && $account->phanquyen=='admin')){
-                    echo 'admin';
-                }
 
             }
             if($success===false){
@@ -57,11 +54,8 @@ class loginController extends Controller
 
     }
     public function checklogin(Request $request){
-        if( $request->session()->has('id') && $request->session()->has('role')=='user') {
+        if( $request->session()->has('id')) {
             return redirect('/');
-        }
-        else if($request->session()->has('id') && $request->session()->has('role')=='admin'){
-            echo 'admin';
         }
         else return view('page.dangnhap');
     }

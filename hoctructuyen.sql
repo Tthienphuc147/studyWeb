@@ -439,15 +439,18 @@ ALTER TABLE `users`
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
 (NULL, 'Phan Đinh Thiên Phúc', 'dthienphuc147@gmail.com', NULL, 'phuc', NULL, 1, 1111111111, NULL, NULL),
 (NULL, 'a', 'a@gmail.com', NULL, '1', NULL, 1, 1, NULL, NULL),
-(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 2, 1, NULL, NULL);
+(NULL, 'Bùi Trọng Nghĩa', 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 2, 1, NULL, NULL),
+(NULL, 'admin', 'admin@gmail.com', NULL, 'admin', NULL, NULL, 1, NULL, NULL),
+(NULL, 'teacher', 'teacher@gmail.com', NULL, 'teacher', NULL, NULL, 1, NULL, NULL);
 
 --
 -- Dumping data for table `phanquyen`
 --
 
 INSERT INTO `phanquyen` (`id`, `id_user`, `phanquyen`) VALUES
-(NULL, 1, 'user'),
-(NULL, 2, 'admin');
+(NULL, 1, 'user_role'),
+(NULL, 4, 'admin_role'),
+(NULL, 5, 'teacher_role');
 --
 -- Dumping data for table `mucdo`
 --

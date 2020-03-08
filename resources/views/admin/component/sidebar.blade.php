@@ -1,6 +1,10 @@
 <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTa90fY1hy-RvmpgvIxS80JzkK_fu-NBNpomZOrW-zvfUq2eRMO" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Xin chào Admin</h5>
+          @if (request()->session()->has('id'))
+
+                <h5 class="centered">Xin chào  {{ request()->session()->get('namelogin') }}</h5>
+          @endif
+
           <li class="mt">
             <a href="">
               <i class="fa fa-dashboard"></i>

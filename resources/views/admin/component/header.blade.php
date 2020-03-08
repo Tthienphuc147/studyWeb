@@ -5,7 +5,7 @@
       <a href="" class="logo"><b>HỌC TẬP <span>TRỰC TUYẾN</span></b></a>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="">Đăng xuất</a></li>
+          <li><a class="logout" href="/showAdmin/logout">Đăng xuất</a></li>
         </ul>
       </div>
     </header>
