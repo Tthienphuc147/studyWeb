@@ -14,8 +14,8 @@ class loginController extends Controller
     }
     public function LoginAuth(Request $request){
         $email = $request->input('email');
-        $pass=$request->input('password');
-        $data=DB::table('users') ->join('chitietlop_user','users.id','=','chitietlop_user.id_user')->join('chitietlophoc_monhoc','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
+        $pass=md5($request->input('password'));
+        $data=DB::table('users') ->leftJoin('chitietlop_user','users.id','=','chitietlop_user.id_user')->leftJoin('chitietlophoc_monhoc','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
         ->where('email',$email)
         ->select('users.*','chitietlophoc_monhoc.id_lophoc')
         ->get();

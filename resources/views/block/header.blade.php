@@ -27,6 +27,7 @@
                     </div>
                   </div>
             @else
+            <a href="/showRegister"><button class="btn btn-sm login">Đăng ký</button></a>
             <a href="/loginview"><button class="btn btn-sm login">Đăng nhập</button></a>
             @endif
 

@@ -2012,3 +2012,12 @@ ol {
     color:#f6783a;
 }
 
+
+/*style register */
+.register-form{
+    min-width: 55rem;
+}
+#register{
+    width: 20rem;
+    margin-top: 2rem;
+}

@@ -34,5 +34,15 @@ Route::get('/showViewAdmin','AdminController@show');
 Route::get('/showAdmin/logout','AdminController@LogOut');
 Route::post('/showAdmin/loginAdmin','AdminController@LoginAuth');
 
+//register
+Route::get('/showRegister','RegisterController@showRegister');
+Route::post('/register','RegisterController@register');
 
 
+//teacher
+Route::get('/admin/teacher/list','AdminTeacherController@showList');
+Route::get('/admin/teacher/addView','AdminTeacherController@showAddView');
+Route::get('/admin/teacher/updateView/{id}','AdminTeacherController@showUpdateView');
+Route::post('/admin/teacher/add','AdminTeacherController@add');
+Route::post('/admin/teacher/update','AdminTeacherController@update');
+Route::get('/admin/teacher/delete/{id}','AdminTeacherController@delete');

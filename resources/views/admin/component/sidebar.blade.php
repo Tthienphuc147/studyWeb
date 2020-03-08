@@ -11,6 +11,19 @@
               <span>Quản lý</span>
               </a>
           </li>
+          @if (request()->session()->get('role')==2)
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <span>Quản lý giáo viên</span>
+              </a>
+            <ul class="sub">
+              <li><a href="/admin/teacher/list">Danh sách giáo viên</a></li>
+              <li><a href="/admin/teacher/addView">Thêm giáo viên</a></li>
+            </ul>
+          </li>
+          @endif
+
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-users" aria-hidden="true"></i>
