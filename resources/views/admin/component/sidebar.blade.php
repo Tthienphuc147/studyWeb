@@ -29,7 +29,7 @@
               </a>
             <ul class="sub">
               <li><a href="/admin/teacher/list">Danh sách giáo viên</a></li>
-              <li><a href="/admin/teacher/addView">Thêm giáo viên</a></li>
+              <li><a href="/admin/teacher/addview">Thêm giáo viên</a></li>
             </ul>
           </li>
           @endif
@@ -40,8 +40,8 @@
               <span>Quản lý lớp học</span>
               </a>
             <ul class="sub">
-              <li><a href="">Danh sách lớp học</a></li>
-              <li><a href="">Thêm lớp học</a></li>
+              <li><a href="/admin/class/list">Danh sách lớp học</a></li>
+              @if(Request()->session()->get('role')==2)<li><a href="/admin/class/addview">Thêm lớp học</a></li>@endif
             </ul>
           </li>
           <li class="sub-menu">
