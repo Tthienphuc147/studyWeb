@@ -19,7 +19,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
 
     }
@@ -30,7 +30,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
     }
     public function add(Request $request){
@@ -69,7 +69,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
     }
 
@@ -81,7 +81,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
     }
 
@@ -115,7 +115,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
     }
     public function delete($id){
@@ -126,7 +126,7 @@ class AdminTeacherController extends Controller
 
         }
         else{
-            return redirect('/showViewAdmin');
+            return redirect('/showviewadmin');
         }
     }
 

@@ -50,13 +50,13 @@ class AdminController extends Controller
                     switch($account->role)
                     {
                         case 1:
-                            return redirect('/showAdmin');
+                            return redirect('/showadmin');
                         break;
                         case 2:
-                            return redirect('/showViewAdmin');
+                            return redirect('/showviewadmin');
                         break;
                         case 3:
-                            return redirect('/showViewAdmin');
+                            return redirect('/showviewadmin');
                         break;
 
                     }
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
             }
             if($success===false){
-                return redirect('/showAdmin');
+                return redirect('/showadmin');
             }
 
     }

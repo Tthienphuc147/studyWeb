@@ -29,20 +29,28 @@ Route::get('editprofile/{id}','UsersController@edit');
 Route::get('/ranking','UsersController@showranking');
 
 //admin
-Route::get('/showAdmin','AdminController@showLogin');
-Route::get('/showViewAdmin','AdminController@show');
-Route::get('/showAdmin/logout','AdminController@LogOut');
-Route::post('/showAdmin/loginAdmin','AdminController@LoginAuth');
+Route::get('/showadmin','AdminController@showLogin');
+Route::get('/showviewadmin','AdminController@show');
+Route::get('/showadmin/logout','AdminController@LogOut');
+Route::post('/showadmin/loginadmin','AdminController@LoginAuth');
 
 //register
-Route::get('/showRegister','RegisterController@showRegister');
+Route::get('/showregister','RegisterController@showRegister');
 Route::post('/register','RegisterController@register');
 
 
 //teacher
 Route::get('/admin/teacher/list','AdminTeacherController@showList');
-Route::get('/admin/teacher/addView','AdminTeacherController@showAddView');
-Route::get('/admin/teacher/updateView/{id}','AdminTeacherController@showUpdateView');
+Route::get('/admin/teacher/addview','AdminTeacherController@showAddView');
+Route::get('/admin/teacher/updateview/{id}','AdminTeacherController@showUpdateView');
 Route::post('/admin/teacher/add','AdminTeacherController@add');
 Route::post('/admin/teacher/update','AdminTeacherController@update');
 Route::get('/admin/teacher/delete/{id}','AdminTeacherController@delete');
+
+// class
+Route::get('/admin/class/list','AdminClassController@showList');
+Route::get('/admin/class/addview','AdminClassController@showAddView');
+Route::get('/admin/class/updateview/{id}','AdminClassController@showUpdateView');
+Route::post('/admin/class/update','AdminClassController@update');
+Route::post('/admin/class/add','AdminClassController@add');
+Route::get('/admin/class/delete/{id}','AdminClassController@delete');
