@@ -15,7 +15,7 @@
           @endif
           @if (request()->session()->get('role')==3)
           <li class="mt">
-            <a href="/admin/teacher/viewProfile">
+            <a href="/admin/teacher/viewprofile">
               <i class="fa fa-dashboard"></i>
               <span>Quản lý tài khoản</span>
               </a>

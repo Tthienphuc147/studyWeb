@@ -10,8 +10,8 @@
               <p>Số điện thoại:{{$data->sdt}}</p>
               <p>Ngày sinh:{{$data->ngaysinh}}</p>
               <br>
-              <a href="/admin/teacher/updateProfileView"><button class="btn btn-theme">Cập nhật thông tin</button></a>
-              <a href="/admin/teacher/changePasswordView"><button class="btn btn-theme">Thay đổi mật khẩu</button></a>
+              <a href="/admin/teacher/updateprofileview"><button class="btn btn-theme">Cập nhật thông tin</button></a>
+              <a href="/admin/teacher/changepasswordview"><button class="btn btn-theme">Thay đổi mật khẩu</button></a>
 
             </div>
           </div>

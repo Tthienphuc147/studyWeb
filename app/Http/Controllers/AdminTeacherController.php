@@ -69,7 +69,7 @@ class AdminTeacherController extends Controller
         $Users->role=3;
         $Users->id_taikhoan=1;
         $Users->save();
-        return redirect('/admin/teacher/addView')->with('thongbao','Đăng ký thành công');
+        return redirect('/admin/teacher/addview')->with('thongbao','Đăng ký thành công');
 
         }
         else{
@@ -182,7 +182,7 @@ class AdminTeacherController extends Controller
         $Users->role=3;
         $Users->id_taikhoan=1;
         $Users->save();
-        return redirect('/admin/teacher/viewProfile');
+        return redirect('/admin/teacher/viewprofile');
 
         }
         else{
@@ -222,7 +222,7 @@ class AdminTeacherController extends Controller
         $Users ='App\Account'::find(request()->session()->get('id'));
         $Users->password=md5($request->newPass);
         $Users->save();
-        return redirect('/admin/teacher/viewProfile');
+        return redirect('/admin/teacher/viewprofile');
 
         }
         else{

@@ -18,7 +18,7 @@
                 <td >{{$item->name}}</td>
                 <td >{{$item->email}}</td>
                 <td>
-                    <a href="/admin/teacher/updateView/{{$item->id}}"><button class="btn btn-primary btn-xs"><i class="fa fa-eye"></i></button></a>
+                    <a href="/admin/teacher/updateview/{{$item->id}}"><button class="btn btn-primary btn-xs"><i class="fa fa-eye"></i></button></a>
                     <a href="/admin/teacher/delete/{{$item->id}}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
                 </td>
               </tr>

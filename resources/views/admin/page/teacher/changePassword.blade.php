@@ -5,7 +5,7 @@
     <div class="col-md-12">
 
         <div class="form-panel">
-            <form role="form" class="form-horizontal style-form"  action="/admin/teacher/changePassword" method="POST">
+            <form role="form" class="form-horizontal style-form"  action="/admin/teacher/changepassword" method="POST">
                 {{ csrf_field() }}
                 <div>
                     @if (count($errors)>0)
