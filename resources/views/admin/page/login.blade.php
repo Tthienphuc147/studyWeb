@@ -22,6 +22,7 @@
 
   <div id="login-page">
     <div class="container">
+
       <form action="/showAdmin/loginAdmin" class="form-login" method="POST">
         {{ csrf_field() }}
         <h2 class="form-login-heading">QUẢN LÝ HỌC TẬP TRỰC TUYẾN</h2>

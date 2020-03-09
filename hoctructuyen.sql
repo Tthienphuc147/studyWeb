@@ -238,10 +238,10 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_taikhoan` int(11) NOT NULL,
-  `sdt` int(11) NOT NULL,
+  `sdt` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `ngaysinh` datetime
+  `ngaysinh` date
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -437,10 +437,10 @@ ALTER TABLE `users`
 --
 
 INSERT INTO `users` (`id`, `name`,`role`, `email`, `email_verified_at`, `password`, `remember_token`, `id_taikhoan`, `sdt`, `created_at`, `updated_at`) VALUES
-(NULL, 'Phan Đinh Thiên Phúc',1, 'dthienphuc147@gmail.com', NULL, 'phuc', NULL, 1, 1111111111, NULL, NULL),
-(NULL, 'Bùi Trọng Nghĩa',1, 'nghiadh2016@gmail.com', NULL, 'nghia', NULL, 2, 1, NULL, NULL),
-(NULL, 'admin',2, 'admin@gmail.com', NULL, 'admin', NULL, NULL, 1, NULL, NULL),
-(NULL, 'teacher',3, 'teacher@gmail.com', NULL, 'teacher', NULL, NULL, 1, NULL, NULL);
+(NULL, 'Phan Đinh Thiên Phúc',1, 'dthienphuc147@gmail.com', NULL, '886d057a091559e2f5dff95d1d01360b', NULL, 1, 1111111111, NULL, NULL),
+(NULL, 'Bùi Trọng Nghĩa',1, 'nghiadh2016@gmail.com', NULL, '9e87373408a6cd425ae9b19bf870d893', NULL, 2, 1, NULL, NULL),
+(NULL, 'admin',2, 'admin@gmail.com', NULL, '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, 1, NULL, NULL),
+(NULL, 'teacher',3, 'teacher@gmail.com', NULL, '8d788385431273d11e8b43bb78f3aa41', NULL, NULL, 1, NULL, NULL);
 
 --
 -- Dumping data for table `phanquyen`

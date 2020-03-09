@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $Users->email=$request->email;
         $Users->password=md5($request->password);
         $Users->sdt=$request->phone;
-        $Users->ngaysinh=$request->date;
+        $Users->ngaysinh=Carbon::parse($request->ngaysinh)->format('Y-m-d');
         $Users->role=1;
         $Users->id_taikhoan=1;
         $Users->save();

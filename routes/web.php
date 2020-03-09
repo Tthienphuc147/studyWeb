@@ -46,3 +46,8 @@ Route::get('/admin/teacher/updateView/{id}','AdminTeacherController@showUpdateVi
 Route::post('/admin/teacher/add','AdminTeacherController@add');
 Route::post('/admin/teacher/update','AdminTeacherController@update');
 Route::get('/admin/teacher/delete/{id}','AdminTeacherController@delete');
+Route::get('/admin/teacher/viewProfile','AdminTeacherController@viewProfile');
+Route::get('/admin/teacher/updateProfileView','AdminTeacherController@viewUpdateProfile');
+Route::post('/admin/teacher/updateProfile','AdminTeacherController@updateProfile');
+Route::get('/admin/teacher/changePasswordView','AdminTeacherController@viewChangePassword');
+Route::post('/admin/teacher/changePassword','AdminTeacherController@changePassword');

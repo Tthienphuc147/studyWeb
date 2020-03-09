@@ -83,7 +83,7 @@
                             Ngày sinh
                         </div>
                         <div class="col-8">
-                            <input type="date" placeholder="Nhập ngày sinh" name="date" pattern="\m{2}-\d{2}-\y{4}"/>
+                            <input type="date" placeholder="Nhập ngày sinh" name="ngaysinh" />
                         </div>
                     </div>
 

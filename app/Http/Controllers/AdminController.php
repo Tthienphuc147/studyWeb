@@ -20,7 +20,7 @@ class AdminController extends Controller
     }
     public function LoginAuth(Request $request){
         $email = $request->input('email');
-        $pass=$request->input('password');
+        $pass=md5($request->input('password'));
         $data=DB::table('users')
         ->rightJoin('phanquyen','phanquyen.id','=','users.role')
         ->where('email',$email)

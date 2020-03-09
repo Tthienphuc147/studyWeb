@@ -1,11 +1,11 @@
 @extends('admin.masterAdmin')
 @section('content')
-<h3><i class="fa fa-angle-right"></i>Thêm giáo viên</h3>
+<h3><i class="fa fa-angle-right"></i>Thông tin giáo viên</h3>
 <div class="row mt">
     <div class="col-md-12">
 
         <div class="form-panel">
-            <form role="form" class="form-horizontal style-form"  action="/admin/teacher/add" method="POST">
+            <form role="form" class="form-horizontal style-form"  action="/admin/teacher/updateProfile" method="POST">
                 {{ csrf_field() }}
                 <div>
                     @if (count($errors)>0)
@@ -26,42 +26,33 @@
                 <div class="form-group ">
                 <label class="col-lg-2 control-label">Họ và tên (*)</label>
                 <div class="col-lg-10">
-                  <input type="text" placeholder="Nhập họ và tên" name="name" class="form-control">
+
+
+                  <input type="text" placeholder="Nhập họ và tên" value={{$data->name}} name="name" class="form-control">
                 </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-lg-2 control-label">Email (*)</label>
                     <div class="col-lg-10">
-                      <input type="email" placeholder="Nhập email" name="email" class="form-control">
+                      <input type="email" placeholder="Nhập email" value={{$data->email}} name="email"  class="form-control">
                     </div>
                </div>
-              <div class="form-group ">
-                <label class="col-lg-2 control-label">Mật khẩu (*)</label>
-                <div class="col-lg-10">
-                  <input type="password" placeholder="Nhập mật khẩu" name="password" class="form-control">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-lg-2 control-label">Nhập lại mật khẩu (*)</label>
-                <div class="col-lg-10">
-                  <input type="password" placeholder="Nhập lại mật khẩu" name="passwordRetype" class="form-control">
-                </div>
-              </div>
               <div class="form-group">
                 <label class="col-lg-2 control-label">Số điện thoại (*)</label>
                 <div class="col-lg-10">
-                  <input type="text" placeholder="Nhập số điện thoại" name="phone" class="form-control">
+                  <input type="text" placeholder="Nhập số điện thoại" value={{$data->sdt}} name="phone" class="form-control">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-lg-2 control-label">Ngày sinh</label>
                 <div class="col-lg-10">
-                  <input type="date" placeholder="Nhập ngày sinh" name="ngaysinh" pattern="\m{2}-\d{2}-\y{4}" class="form-control">
+                  <input type="date" placeholder="Nhập ngày sinh" value={{$data->ngaysinh}} name="ngaysinh" pattern="\m{2}-\d{2}-\y{4}" class="form-control">
                 </div>
               </div>
+
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
-                  <button class="btn btn-theme" type="submit">Thêm giáo viên</button>
+                  <button class="btn btn-theme" type="submit">Cập nhật thông tin</button>
                 </div>
               </div>
             </form>

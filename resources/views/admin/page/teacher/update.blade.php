@@ -41,13 +41,13 @@
               <div class="form-group">
                 <label class="col-lg-2 control-label">Số điện thoại (*)</label>
                 <div class="col-lg-10">
-                  <input ype="text" placeholder="Nhập số điện thoại" value={{$data->sdt}} name="phone" class="form-control">
+                  <input type="text" placeholder="Nhập số điện thoại" value={{$data->sdt}} name="phone" class="form-control">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-lg-2 control-label">Ngày sinh</label>
                 <div class="col-lg-10">
-                  <input type="date" placeholder="Nhập ngày sinh" value={{$data->date}} name="date" pattern="\m{2}-\d{2}-\y{4}" class="form-control">
+                  <input type="date" placeholder="Nhập ngày sinh" value={{$data->ngaysinh}} name="ngaysinh" class="form-control">
                 </div>
               </div>
               <div class="form-group">

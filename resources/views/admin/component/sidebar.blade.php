@@ -5,12 +5,22 @@
                 <h5 class="centered">Xin chào  {{ request()->session()->get('namelogin') }}</h5>
           @endif
 
+          @if (request()->session()->get('role')==2)
           <li class="mt">
             <a href="">
               <i class="fa fa-dashboard"></i>
-              <span>Quản lý</span>
+              <span>Quản lý tài khoản </span>
               </a>
           </li>
+          @endif
+          @if (request()->session()->get('role')==3)
+          <li class="mt">
+            <a href="/admin/teacher/viewProfile">
+              <i class="fa fa-dashboard"></i>
+              <span>Quản lý tài khoản</span>
+              </a>
+          </li>
+          @endif
           @if (request()->session()->get('role')==2)
           <li class="sub-menu">
             <a href="javascript:;">
