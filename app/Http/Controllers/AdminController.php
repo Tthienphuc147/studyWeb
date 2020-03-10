@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\ModelPublic;
 class AdminController extends Controller
 {
     public function showLogin(){
        return view('admin.page.login');
     }
     public function show(){
-        return view('admin.page.adminPage');
+        if(ModelPublic::checkRoleAdmin()||ModelPublic::checkRoleTeacher()){
+            return view('admin.page.adminPage');
+        }
+        else return view('admin.page.login');
+
      }
     public function LogOut(Request $request){
         $request->session()->flush();
@@ -69,10 +73,10 @@ class AdminController extends Controller
 
     }
     public function checklogin(Request $request){
-        if( $request->session()->has('id') && ($request->session()->has('role')=='admin_role' ||$request->session()->has('role')=='teacher_role') ) {
-            return redirect('/');
+        if( $request->session()->has('id') && ($request->session()->get('role')=='2' ||$request->session()->get('role')=='3') ) {
+            return redirect('/showviewadmin');
         }
-        else return view('page.dangnhap');
+        else return view('admin.page.login');
     }
 
 }
