@@ -128,10 +128,10 @@
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>
-              <span>Quản lý tài khoản</span>
+              <span>Quản lý loại tài khoản</span>
               </a>
             <ul class="sub">
-              <li><a href="/admin/accounttype/list">Danh sách tài khoản</a></li>
+              <li><a href="/admin/accounttype/list">Danh sách loại tài khoản</a></li>
               <li><a href="/admin/accounttype/addview">Thêm loại tài khoản</a></li>
             </ul>
           </li>
