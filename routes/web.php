@@ -40,17 +40,19 @@ Route::post('/register','RegisterController@register');
 
 
 //teacher
-Route::get('/admin/teacher/list','AdminTeacherController@showList');
-Route::get('/admin/teacher/addview','AdminTeacherController@showAddView');
-Route::get('/admin/teacher/updateview/{id}','AdminTeacherController@showUpdateView');
-Route::post('/admin/teacher/add','AdminTeacherController@add');
-Route::post('/admin/teacher/update','AdminTeacherController@update');
-Route::get('/admin/teacher/delete/{id}','AdminTeacherController@delete');
-Route::get('/admin/teacher/viewprofile','AdminTeacherController@viewProfile');
-Route::get('/admin/teacher/updateprofileview','AdminTeacherController@viewUpdateProfile');
-Route::post('/admin/teacher/updateprofile','AdminTeacherController@updateProfile');
-Route::get('/admin/teacher/changepasswordview','AdminTeacherController@viewChangePassword');
-Route::post('/admin/teacher/changepassword','AdminTeacherController@changePassword');
+Route::get('/admin/teacher/list','AdminTeacherController@showList');//hien thi danh sach giao vien
+Route::get('/admin/teacher/addview','AdminTeacherController@showAddView');//view them moi giao vien
+Route::get('/admin/teacher/updateview/{id}','AdminTeacherController@showUpdateView');//view cap nhat giao vien
+Route::post('/admin/teacher/add','AdminTeacherController@add');//them moi giao vien
+Route::post('/admin/teacher/update','AdminTeacherController@update');//cap nhat giao vien
+Route::get('/admin/teacher/delete/{id}','AdminTeacherController@delete');//xoa giao vien
+Route::get('/admin/teacher/viewprofile','AdminTeacherController@viewProfile');//xem thong tin giao vien
+Route::get('/admin/teacher/updateprofileview','AdminTeacherController@viewUpdateProfile');//view cap nhat tong tin giao vien
+Route::post('/admin/teacher/updateprofile','AdminTeacherController@updateProfile');//cap nhat thong tin giao vien
+Route::get('/admin/teacher/changepasswordview','AdminTeacherController@viewChangePassword');//view thay doi mat khau cho giao vien
+Route::post('/admin/teacher/changepassword','AdminTeacherController@changePassword');//thay doi mat khau giao vien
+
+//class
 Route::get('/admin/class/list','AdminClassController@showList');
 Route::get('/admin/class/addview','AdminClassController@showAddView');
 Route::get('/admin/class/updateview/{id}','AdminClassController@showUpdateView');
@@ -64,3 +66,19 @@ Route::post('loaibaihoc/create', 'loaibaihocController@store'); // Xử lý thê
 Route::get('loaibaihoc/{id}/edit', 'loaibaihocController@edit'); // Sửa loại bài học
 Route::post('loaibaihoc/update', 'loaibaihocController@update'); // Xử lý sửa loại bài học
 Route::get('loaibaihoc/{id}/delete', 'loaibaihocController@destroy'); // Xóa loại bài học
+
+
+//loai tai khoan
+Route::get('/admin/accounttype/list','AdminAccountTypeController@showList');
+Route::get('/admin/accounttype/addview','AdminAccountTypeController@showAddView');
+Route::get('/admin/accounttype/updateview/{id}','AdminAccountTypeController@showUpdateView');
+Route::post('/admin/accounttype/update','AdminAccountTypeController@update');
+Route::post('/admin/accounttype/add','AdminAccountTypeController@add');
+
+
+//phan quyen
+Route::get('/admin/role/list','AdminRoleController@showList');
+Route::get('/admin/role/addview','AdminRoleController@showAddView');
+Route::get('/admin/role/updateview/{id}','AdminRoleController@showUpdateView');
+Route::post('/admin/role/update','AdminRoleController@update');
+Route::post('/admin/role/add','AdminRoleController@add');

@@ -124,24 +124,27 @@
               <li><a href="">Quản lý</a></li>
             </ul>
           </li>
+          @if(Request()->session()->get('role')==2)
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>
               <span>Quản lý tài khoản</span>
               </a>
             <ul class="sub">
-              <li><a href="">Danh sách tài khoản</a></li>
-              <li><a href="">Thêm tài khoản</a></li>
+              <li><a href="/admin/accounttype/list">Danh sách tài khoản</a></li>
+              <li><a href="/admin/accounttype/addview">Thêm loại tài khoản</a></li>
             </ul>
           </li>
+
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>
               <span>Quản lý phân quyền</span>
               </a>
             <ul class="sub">
-              <li><a href="">Quản lý</a></li>
+            <li><a href="/admin/role/list">Danh sách loại phân quyền</a></li>
+              <li><a href="/admin/role/addview">Thêm loại phân quyền</a></li>
             </ul>
           </li>
-
+          @endif
         </ul>
