@@ -9,11 +9,11 @@ use App\ModelPublic;
 
 class AdminAccountTypeController extends Controller
 {
-    
+
     public function showList(){
         if(ModelPublic::checkRoleAdmin()) {
             $data=AccountType::orderBy('id','desc')->get();
-            return view('admin.page.accountType.list')->with('data',$data);
+            return view('admin.page.accounttype.list')->with('data',$data);
 
         }
         else{
@@ -24,7 +24,7 @@ class AdminAccountTypeController extends Controller
     public function showAddView(){
         if(ModelPublic::checkRoleAdmin()) {
 
-            return view('admin.page.accountType.add');
+            return view('admin.page.accounttype.add');
 
         }
         else{

@@ -9,7 +9,7 @@ use App\ModelPublic;
 
 class AdminRoleController extends Controller
 {
-    
+
     public function showList(){
         if(ModelPublic::checkRoleAdmin()) {
             $data=RoleGroup::orderBy('id','asc')->get();
@@ -73,7 +73,7 @@ class AdminRoleController extends Controller
             'name' => 'required'
         ],
         [
-            'name.required' => 'Bạn chưa nhập tên loại tài khoản!'
+            'name.required' => 'Bạn chưa nhập tên loại quyền!'
         ]);
 
         $data=RoleGroup::find($request->input('id'));
