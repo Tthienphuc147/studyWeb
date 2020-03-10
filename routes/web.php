@@ -29,7 +29,7 @@ Route::get('editprofile/{id}','UsersController@edit');
 Route::get('/ranking','UsersController@showranking');
 
 //admin
-Route::get('/showadmin','AdminController@showLogin');
+Route::get('/showadmin','AdminController@checkLogin');
 Route::get('/showviewadmin','AdminController@show');
 Route::get('/showadmin/logout','AdminController@LogOut');
 Route::post('/showadmin/loginadmin','AdminController@LoginAuth');
