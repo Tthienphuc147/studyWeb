@@ -5,7 +5,7 @@
     <div class="col-md-12">
 
         <div class="form-panel">
-            <form role="form" class="form-horizontal style-form"  action="/admin/accountype/add" method="POST">
+            <form role="form" class="form-horizontal style-form"  action="/admin/accounttype/add" method="POST">
                 {{ csrf_field() }}
                 <div>
                     @if (count($errors)>0)
@@ -26,7 +26,7 @@
                 <div class="form-group ">
                 <label class="col-lg-2 control-label">Tên loại tài khoản (*)</label>
                 <div class="col-lg-10">
-                  <input type="text" placeholder="Nhập tên lớp" name="name" class="form-control">
+                  <input type="text" placeholder="Nhập tên loại tài khoản" name="name" class="form-control">
                 </div>
                 </div>
                 <div class="form-group">

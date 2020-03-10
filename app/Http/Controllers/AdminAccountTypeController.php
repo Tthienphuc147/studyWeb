@@ -12,7 +12,7 @@ class AdminAccountTypeController extends Controller
 
     public function showList(){
         if(ModelPublic::checkRoleAdmin()) {
-            $data=AccountType::orderBy('id','desc')->get();
+            $data=AccountType::orderBy('id','asc')->get();
             return view('admin.page.accounttype.list')->with('data',$data);
 
         }
@@ -42,7 +42,9 @@ class AdminAccountTypeController extends Controller
             'name.required' => 'Bạn chưa nhập tên loại tài khoản!'
         ]);
 
-        $data=AccountType::create($request->all());
+        $data=new AccountType();
+        $data->tenloaitk=$request->name;
+        $data->save();
         return redirect('/admin/accounttype/addview')->with('thongbao','Thêm mới thành công');
 
         }
