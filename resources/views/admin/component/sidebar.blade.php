@@ -70,8 +70,8 @@
               <span>Quản lý loại bài học</span>
               </a>
             <ul class="sub">
-              <li><a href="">Danh sách loại bài học</a></li>
-              <li><a href="">Thêm loại bài học</a></li>
+              <li><a href="/loaibaihoc">Danh sách loại bài học</a></li>
+              <li><a href="/loaibaihoc/create">Thêm loại bài học</a></li>
             </ul>
           </li>
           <li class="sub-menu">

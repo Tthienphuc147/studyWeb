@@ -57,3 +57,10 @@ Route::get('/admin/class/updateview/{id}','AdminClassController@showUpdateView')
 Route::post('/admin/class/update','AdminClassController@update');
 Route::post('/admin/class/add','AdminClassController@add');
 
+//loaibaihoc
+Route::get('loaibaihoc', 'loaibaihocController@index'); // Hiển thị danh sách loại bài học
+Route::get('loaibaihoc/create', 'loaibaihocController@create'); // Thêm mới loại bài học
+Route::post('loaibaihoc/create', 'loaibaihocController@store'); // Xử lý thêm mới loại bài học
+Route::get('loaibaihoc/{id}/edit', 'loaibaihocController@edit'); // Sửa loại bài học
+Route::post('loaibaihoc/update', 'loaibaihocController@update'); // Xử lý sửa loại bài học
+Route::get('loaibaihoc/{id}/delete', 'loaibaihocController@destroy'); // Xóa loại bài học
