@@ -32,12 +32,12 @@
                 <div class="form-group " hidden="true">
                 <label class="col-lg-2 control-label">Ảnh</label>
                 <div class="col-lg-10">
-                  <input type="text" placeholder="Nhập tên lớp" name="anh" class="form-control" value='1.jpg'>
+                  <input type="text" placeholder="Nhập tên môn" name="anh" class="form-control" value='1.jpg'>
                 </div>
                 </div>
                 <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
-                  <button class="btn btn-theme" type="submit">Thêm lớp học</button>
+                  <button class="btn btn-theme" type="submit">Thêm môn học</button>
                 </div>
               </div>
             </form>
