@@ -6,20 +6,47 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\lophoc;
 use App\ModelPublic;
+use App\monhoc;
 
 class AdminClassController extends Controller
 {
-    
+
     public function showList(){
-        if(ModelPublic::checkRoleAdmin()||ModelPublic::checkRoleTeacher()) {
-            $data=lophoc::orderBy('id','desc')->get();
+        if(ModelPublic::checkRoleAdmin()) {
+            $data=lophoc::orderBy('id','asc')->get();
             return view('admin.page.class.list')->with('data',$data);
 
         }
-        else{
-            return redirect('/');
-        }
+        else if(ModelPublic::checkRoleTeacher()) {
+            $data=lophoc::join('chitietlophoc_monhoc','chitietlophoc_monhoc.id_lophoc','=','lophoc.id')
+            ->leftjoin('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
+            ->join('users','users.id','=','chitietlop_user.id_user')->orderBy('lophoc.id','asc')
+            ->where('users.role',3)->select('lophoc.*')->distinct()->get();
+           //return dd($data);
+           return view('admin.page.class.list')->with('data',$data);
 
+        }
+        return redirect('/');
+    }
+    public function showListSubject($id){
+        if(ModelPublic::checkRoleAdmin()) {
+            $data=monhoc::join('chitietlophoc_monhoc','chitietlophoc_monhoc.id_monhoc','=','monhoc.id')
+             ->join('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')->orderBy('monhoc.id','asc')->where('id_lophoc',$id)
+             ->join('users','users.id','=','chitietlop_user.id_user')
+             ->select('chitietlophoc_monhoc.id','users.name','monhoc.tenmonhoc')->where('id_lophoc',$id)->get();
+            return view('admin.page.subject.listSubject')->with('data',$data);
+
+        }
+        else if(ModelPublic::checkRoleTeacher()) {
+            $data=monhoc::join('chitietlophoc_monhoc','chitietlophoc_monhoc.id_monhoc','=','monhoc.id')
+            ->join('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
+            ->join('users','users.id','=','chitietlop_user.id_user')->orderBy('monhoc.id','asc')
+            ->where('users.id',request()->session()->get('id'))
+            ->where('users.role',3)
+            ->where('id_lophoc',$id)->select('chitietlophoc_monhoc.id','users.name','monhoc.tenmonhoc')->get();
+            return view('admin.page.subject.listSubject')->with('data',$data);
+
+        }
     }
     public function showAddView(){
         if(ModelPublic::checkRoleAdmin()) {

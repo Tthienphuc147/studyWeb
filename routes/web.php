@@ -59,6 +59,7 @@ Route::get('/admin/class/updateview/{id}','AdminClassController@showUpdateView')
 Route::post('/admin/class/update','AdminClassController@update');
 Route::post('/admin/class/add','AdminClassController@add');
 Route::get('/admin/class/delete/{id}','AdminClassController@delete');
+Route::get('/admin/class/showlistsubject/{id}','AdminClassController@showListSubject');//show danh sach môn học
 
 //subject
 Route::get('/admin/subject/list','AdminSubjectController@showList');
@@ -93,9 +94,9 @@ Route::post('/admin/role/update','AdminRoleController@update');
 Route::post('/admin/role/add','AdminRoleController@add');
 
 //muc do
-Route::get('mucdo', 'MucDoController@index'); 
+Route::get('mucdo', 'MucDoController@index');
 Route::get('mucdo/create', 'MucDoController@create');
-Route::post('mucdo/create', 'MucDoController@store'); 
-Route::get('mucdo/{id}/edit', 'MucDoController@edit'); 
-Route::post('mucdo/update', 'MucDoController@update'); 
+Route::post('mucdo/create', 'MucDoController@store');
+Route::get('mucdo/{id}/edit', 'MucDoController@edit');
+Route::post('mucdo/update', 'MucDoController@update');
 Route::get('mucdo/{id}/delete', 'MucDoController@destroy');
