@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
-class loaibaihocController extends Controller
+class MucDoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,12 @@ class loaibaihocController extends Controller
      */
     public function index(Request $request)
     { 
-       // echo $request->session()->has('id');
        
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
   
-        $getData = DB::table('loaibaihoc')->select('id','tenloaibaihoc')->get();
-        return view('admin.page.loaibaihoc.list')->with('list',$getData);
+        $getData = DB::table('mucdo')->select('id','tenmucdo')->get();
+        return view('admin.page.mucdo.list')->with('list',$getData);
     }
 
     /**
@@ -32,7 +31,7 @@ class loaibaihocController extends Controller
     {
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
-        return view('admin.page.loaibaihoc.create');
+        return view('admin.page.mucdo.create');
     }
 
     /**
@@ -45,18 +44,21 @@ class loaibaihocController extends Controller
     {
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
         $dataInsertToDatabase = array(
-            'tenloaibaihoc'  => $request->get('tenloaibaihoc')
+            'tenmucdo'  => $request->get('tenmucdo'),
+            'created_at' => date('Y-m-d H:i:s'),
+		    'updated_at' => date('Y-m-d H:i:s'),
         );
-        $insertData = DB::table('loaibaihoc')->insert($dataInsertToDatabase);
+        $insertData = DB::table('mucdo')->insert($dataInsertToDatabase);
 	
         //Kiểm tra Insert để trả về một thông báo
         if ($insertData) {
-            Session::flash('success', 'Thêm mới loại bài học thành công!');
+            Session::flash('success', 'Thêm mới mức độ thành công!');
         }else {                        
             Session::flash('error', 'Thêm thất bại!');
         }
-        return redirect('loaibaihoc/create');
+        return redirect('mucdo/create');
     }
 
     /**
@@ -80,8 +82,8 @@ class loaibaihocController extends Controller
     {
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
-        $getData = DB::table('loaibaihoc')->select('id','tenloaibaihoc')->where('id',$id)->get();
-        return view('admin.page.loaibaihoc.edit')->with('data',$getData);
+        $getData = DB::table('mucdo')->select('id','tenmucdo')->where('id',$id)->get();
+        return view('admin.page.mucdo.edit')->with('data',$getData);
     }
 
     /**
@@ -95,19 +97,21 @@ class loaibaihocController extends Controller
     {
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
-        $updateData = DB::table('loaibaihoc')->where('id', $request->id)->update([
-            'tenloaibaihoc' => $request->tenloaibaihoc
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $updateData = DB::table('mucdo')->where('id', $request->id)->update([
+            'tenmucdo' => $request->tenmucdo,
+		    'updated_at' => date('Y-m-d H:i:s'),
         ]);
         
         //Kiểm tra lệnh update để trả về một thông báo
         if ($updateData) {
-            Session::flash('success', 'Sửa loại bài học thành công!');
+            Session::flash('success', 'Sửa mức độ thành công!');
         }else {                        
             Session::flash('error', 'Sửa thất bại!');
         }
         
         //Thực hiện chuyển trang
-        return redirect('loaibaihoc');
+        return redirect('mucdo');
     }
 
     /**
@@ -120,14 +124,14 @@ class loaibaihocController extends Controller
     {
         if( !$request->session()->has('id') || $request->session()->get('role')!='2' )
             return redirect('/showadmin');
-        $deleteData = DB::table('loaibaihoc')->where('id', '=', $id)->delete();
+        $deleteData = DB::table('mucdo')->where('id', '=', $id)->delete();
             
         if ($deleteData) {
-            Session::flash('success', 'Xóa loại bài học thành công!');
+            Session::flash('success', 'Xóa mức độ thành công!');
         }else {                        
             Session::flash('error', 'Xóa thất bại!');
         }
         
-        return redirect('loaibaihoc');
+        return redirect('mucdo');
     }
 }

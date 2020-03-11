@@ -1,8 +1,6 @@
 @extends('admin.masterAdmin')
-
 @section('content')
-
-<div class="page-header"><h4>Quản lý loại bài học</h4></div>
+<div class="page-header"><h4>Quản lý mức độ bài học</h4></div>
 
 <?php //Hiển thị thông báo thành công?>
 @if ( Session::has('success') )
@@ -26,18 +24,17 @@
 	</div>
 @endif
 
-<?php //Hiển thị form sửa loại bài học?>
-<p><a class="btn btn-primary" href="{{ url('/loaibaihoc') }}">Về danh sách</a></p>
+<?php //Form thêm mới?>
+<p><a class="btn btn-primary" href="{{ url('/mucdo') }}">Về danh sách</a></p>
 <div class="col-xs-4 col-xs-offset-4">
-	<center><h4>Sửa loại bài học</h4></center>
-	<form action="{{ url('/loaibaihoc/update') }}" method="post">
-		<input type="hidden" id="_token" name="_token" value="{!! csrf_token() !!}" />
-		<input type="hidden" id="id" name="id" value="{!! $data[0]->id !!}" />
+	<center><h4>Thêm mức độ</h4></center>
+	<form action="{{url('/mucdo/create') }}" method="post">
+		<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}"/>
 		<div class="form-group">
-			<label for="tenloaibaihoc">Tên loại bài học</label>
-			<input type="text" class="form-control" id="tenloaibaihoc" name="tenloaibaihoc" placeholder="Tên loại bài học" maxlength="255" value="{{ $data[0]->tenloaibaihoc }}" required />
-		</div>
-		<center><button type="submit" class="btn btn-primary">Lưu lại</button></center>
+			<label for="tenmucdo">Tên mức độ</label>
+			<input type="text" class="form-control" id="tenmucdo" name="tenmucdo" placeholder="Tên mức độ" maxlength="255" required />
+		</div>	
+		<center><button type="submit" class="btn btn-primary">Thêm</button></center>
 	</form>
 </div>
 

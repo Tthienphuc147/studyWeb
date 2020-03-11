@@ -91,3 +91,11 @@ Route::get('/admin/role/addview','AdminRoleController@showAddView');
 Route::get('/admin/role/updateview/{id}','AdminRoleController@showUpdateView');
 Route::post('/admin/role/update','AdminRoleController@update');
 Route::post('/admin/role/add','AdminRoleController@add');
+
+//muc do
+Route::get('mucdo', 'MucDoController@index'); 
+Route::get('mucdo/create', 'MucDoController@create');
+Route::post('mucdo/create', 'MucDoController@store'); 
+Route::get('mucdo/{id}/edit', 'MucDoController@edit'); 
+Route::post('mucdo/update', 'MucDoController@update'); 
+Route::get('mucdo/{id}/delete', 'MucDoController@destroy');
