@@ -440,7 +440,8 @@ INSERT INTO `users` (`id`, `name`,`role`, `email`, `email_verified_at`, `passwor
 (NULL, 'Phan Đinh Thiên Phúc',1, 'dthienphuc147@gmail.com', NULL, '886d057a091559e2f5dff95d1d01360b', NULL, 1, 1111111111, NULL, NULL),
 (NULL, 'Bùi Trọng Nghĩa',1, 'nghiadh2016@gmail.com', NULL, '9e87373408a6cd425ae9b19bf870d893', NULL, 2, 1, NULL, NULL),
 (NULL, 'admin',2, 'admin@gmail.com', NULL, '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, 1, NULL, NULL),
-(NULL, 'teacher',3, 'teacher@gmail.com', NULL, '8d788385431273d11e8b43bb78f3aa41', NULL, NULL, 1, NULL, NULL);
+(NULL, 'teacher1',3, 'teacher@gmail.com', NULL, '8d788385431273d11e8b43bb78f3aa41', NULL, NULL, 1, NULL, NULL),
+(NULL, 'teacher2',3, 'teacher1@gmail.com', NULL, '8d788385431273d11e8b43bb78f3aa41', NULL, NULL, 1, NULL, NULL);
 
 --
 -- Dumping data for table `phanquyen`
@@ -464,7 +465,8 @@ INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
 
 INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
 (NULL, 'Toán', '0'),
-(NULL, 'Văn', '0');
+(NULL, 'Văn', '0'),
+(NULL, 'Vật lý', '0');
 
 --
 -- Dumping data for table `lophoc`
@@ -546,7 +548,8 @@ INSERT INTO `dapan` (`id`, `id_chitietbaihoc`, `dapan`, `luachon`) VALUES
 INSERT INTO `chitietlophoc_monhoc` (`id`, `id_monhoc`, `id_lophoc`, `created_at`, `updated_at`) VALUES
 (NULL, 1, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
 (NULL, 2, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
-(NULL, 1, 2, '2019-05-09 17:00:00', '0000-00-00 00:00:00');
+(NULL, 3, 2, '2019-05-09 17:00:00', '0000-00-00 00:00:00'),
+(NULL, 3, 1, '2019-05-09 17:00:00', '0000-00-00 00:00:00');
 
 -- Dumping data for table `taikhoan`
 --
@@ -593,8 +596,10 @@ INSERT INTO `loaibaihoc` (`id`, `tenloaibaihoc`) VALUES
 -- Dumping data for table `chitietlop_user`
 --
 INSERT INTO `chitietlop_user` (`id`, `id_user`, `id_chitietlophoc_monhoc`)
-VALUES (NULL, '2', '1'),
-(NULL, '1', '1');
+VALUES (NULL, '4', '1'),
+(NULL, '4', '2'),
+(NULL, '4', '3'),
+(NULL, '5', '4');
 
 COMMIT;
 

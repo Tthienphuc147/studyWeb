@@ -19,9 +19,11 @@ class AdminClassController extends Controller
         }
         else if(ModelPublic::checkRoleTeacher()) {
             $data=lophoc::join('chitietlophoc_monhoc','chitietlophoc_monhoc.id_lophoc','=','lophoc.id')
-            ->leftjoin('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
+            ->join('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')
             ->join('users','users.id','=','chitietlop_user.id_user')->orderBy('lophoc.id','asc')
-            ->where('users.role',3)->select('lophoc.*')->distinct()->get();
+            ->where('users.role',3)
+            ->where('users.id',request()->session()->get('id'))
+            ->select('lophoc.*')->distinct()->get();
            //return dd($data);
            return view('admin.page.class.list')->with('data',$data);
 
