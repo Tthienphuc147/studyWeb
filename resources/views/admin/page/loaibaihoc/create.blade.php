@@ -1,6 +1,6 @@
 @extends('admin.masterAdmin')
 @section('content')
-<div class="page-header"><h4>Quản lý học sinh</h4></div>
+<div class="page-header"><h4>Quản lý loại bài học</h4></div>
 
 <?php //Hiển thị thông báo thành công?>
 @if ( Session::has('success') )
