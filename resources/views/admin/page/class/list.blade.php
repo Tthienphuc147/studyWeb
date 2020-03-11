@@ -12,6 +12,8 @@
               <th>Ảnh</th>
               <th>Thao Tác</th>
               <th> Quản lý môn học</th>
+              <th> Giáo viên</th>
+              <th> User</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +28,12 @@
                 </td>
                 <td>
                 <a href="/admin/subject/{{$item->id}}/list"><button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button></a>
+                </td>
+                <td>
+                  <a href="/admin/teacher/list/{{$item->id}}"><button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button></a>
+                </td>
+                <td>
+                  <a href="/admin/user/list/{{$item->id}}"><button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button></a>
                 </td>
               </tr>
               @endforeach

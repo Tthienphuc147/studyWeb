@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class monhoc extends Model
 {
     protected $table="monhoc";
+    public $timestamps=false;
+    protected $fillable=['tenmonhoc','anh'];
 }

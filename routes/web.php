@@ -58,6 +58,15 @@ Route::get('/admin/class/addview','AdminClassController@showAddView');
 Route::get('/admin/class/updateview/{id}','AdminClassController@showUpdateView');
 Route::post('/admin/class/update','AdminClassController@update');
 Route::post('/admin/class/add','AdminClassController@add');
+Route::get('/admin/class/delete/{id}','AdminClassController@delete');
+
+//subject
+Route::get('/admin/subject/list','AdminSubjectController@showList');
+Route::get('/admin/subject/addview','AdminSubjectController@showAddView');
+Route::get('/admin/subject/updateview/{id}','AdminSubjectController@showUpdateView');
+Route::post('/admin/subject/update','AdminSubjectController@update');
+Route::post('/admin/subject/add','AdminSubjectController@add');
+Route::get('/admin/subject/delete/{id}','AdminSubjectController@delete');
 
 //loaibaihoc
 Route::get('loaibaihoc', 'loaibaihocController@index'); // Hiển thị danh sách loại bài học

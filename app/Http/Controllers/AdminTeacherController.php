@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Account;
+use App\ModelPublic;
 use Carbon\Carbon;
 
 class AdminTeacherController extends Controller
@@ -27,6 +28,7 @@ class AdminTeacherController extends Controller
         }
 
     }
+    
     public function showAddView(){
         if($this->checkRole()) {
 

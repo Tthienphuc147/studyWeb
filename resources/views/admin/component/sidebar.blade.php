@@ -44,16 +44,18 @@
               @if(Request()->session()->get('role')==2)<li><a href="/admin/class/addview">Thêm lớp học</a></li>@endif
             </ul>
           </li>
+          @if(Request()->session()->get('role')==2)
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-book" aria-hidden="true"></i>
+              <i class="fa fa-users" aria-hidden="true"></i>
               <span>Quản lý môn học</span>
               </a>
             <ul class="sub">
-              <li><a href="">Danh sách môn học</a></li>
-              <li><a href="">Thêm môn học</a></li>
+              <li><a href="/admin/subject/list">Danh sách môn học</a></li>
+              <li><a href="/admin/subject/addview">Thêm môn học</a></li>
             </ul>
           </li>
+          @endif
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>
