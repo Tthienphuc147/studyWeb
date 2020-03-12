@@ -103,3 +103,9 @@ Route::post('mucdo/create', 'MucDoController@store');
 Route::get('mucdo/{id}/edit', 'MucDoController@edit');
 Route::post('mucdo/update', 'MucDoController@update');
 Route::get('mucdo/{id}/delete', 'MucDoController@destroy');
+
+
+//addteachersubject
+
+Route::get('/admin/addteachersubject/show/{id}','AdminTeacherSubjectController@showList');
+Route::post('/admin/addteachersubject/add/{id}','AdminTeacherSubjectController@add');

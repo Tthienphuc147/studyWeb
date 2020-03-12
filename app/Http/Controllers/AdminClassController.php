@@ -38,7 +38,7 @@ class AdminClassController extends Controller
              ->join('users','users.id','=','chitietlop_user.id_user')
              ->select('chitietlophoc_monhoc.id','users.name','monhoc.tenmonhoc')->where('id_lophoc',$id)->get();
              //return dd($data);
-        return view('admin.page.subject.listSubject')->with('data',$data);
+        return view('admin.page.subject.listSubject')->with('data',$data)->with('id_lophoc',$id);
 
         }
         else if(ModelPublic::checkRoleTeacher()) {
@@ -48,7 +48,7 @@ class AdminClassController extends Controller
             ->where('users.id',request()->session()->get('id'))
             ->where('users.role',3)
             ->where('id_lophoc',$id)->select('chitietlophoc_monhoc.id','users.name','monhoc.tenmonhoc')->get();
-            return view('admin.page.subject.listSubject')->with('data',$data);
+            return view('admin.page.subject.listSubject')->with('data',$data)->with('id_lophoc',$id);
 
         }
     }

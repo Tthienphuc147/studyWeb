@@ -28,7 +28,9 @@
               @endforeach
 
           </tbody>
+          
         </table>
+        <button class="btn btn-primary"><a href="/admin/addteachersubject/show/{{$id_lophoc}}" style="color:white">Thêm giáo viên và môn học</a></button>
       </div>
       <!-- /content-panel -->
     </div>
