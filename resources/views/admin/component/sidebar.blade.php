@@ -126,7 +126,7 @@
               <li><a href="">Quản lý</a></li>
             </ul>
           </li>
-          @if(Request()->session()->get('role')==2)
+          @if(request()->session()->get('role')==2)
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>

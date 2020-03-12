@@ -27,7 +27,9 @@
                 </td>
                 <td>
                 <a href="/admin/class/showlistsubject/{{$item->id}}"><button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button></a>
+                <a href="/admin/showaddsubject/view/{{$item->id}}"><button class="btn btn-light btn-xs"><i class="fa fa-plus"></i></button></a>
                 </td>
+
 
               </tr>
               @endforeach

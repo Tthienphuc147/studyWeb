@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\ModelPublic;
+use App\Account;
 class AdminController extends Controller
 {
     public function showLogin(){

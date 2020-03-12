@@ -60,6 +60,9 @@ Route::post('/admin/class/update','AdminClassController@update');
 Route::post('/admin/class/add','AdminClassController@add');
 Route::get('/admin/class/delete/{id}','AdminClassController@delete');
 Route::get('/admin/class/showlistsubject/{id}','AdminClassController@showListSubject');//show danh sach môn học
+Route::get('/admin/classsubject/delete/{id}','AdminClassController@deleteDetailClass');//xoa chi tiet lophoc_monhoc
+Route::get('/admin/showaddsubject/view/{id}','AdminClassController@showAddSubject');//show view them mon hoc vao lop hoc tuong ung
+Route::post('/admin/showaddsubject/add','AdminClassController@addSubject');
 
 //subject
 Route::get('/admin/subject/list','AdminSubjectController@showList');
@@ -106,3 +109,8 @@ Route::get('regcourse/{id}','RegCourseController@index');
 Route::get('regcourse/{id}/{id2}','RegCourseController@showmon');
 Route::get('regcourse/dangky/{id}/{id2}','RegCourseController@register');
 Route::get('regcourse/huy/{id}/{id2}','RegCourseController@destroy');
+
+//addteachersubject
+
+Route::get('/admin/addteachersubject/show/{id}','AdminTeacherSubjectController@showList');
+Route::post('/admin/addteachersubject/add/{id}','AdminTeacherSubjectController@add');
