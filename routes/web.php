@@ -100,3 +100,9 @@ Route::post('mucdo/create', 'MucDoController@store');
 Route::get('mucdo/{id}/edit', 'MucDoController@edit');
 Route::post('mucdo/update', 'MucDoController@update');
 Route::get('mucdo/{id}/delete', 'MucDoController@destroy');
+
+//Dang ky khoa hoc
+Route::get('regcourse/{id}','RegCourseController@index');
+Route::get('regcourse/{id}/{id2}','RegCourseController@showmon');
+Route::get('regcourse/dangky/{id}/{id2}','RegCourseController@register');
+Route::get('regcourse/huy/{id}/{id2}','RegCourseController@destroy');

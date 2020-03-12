@@ -102,8 +102,8 @@
               <span>Quản lý mức độ bài học</span>
               </a>
             <ul class="sub">
-              <li><a href="">Danh sách mức độ</a></li>
-              <li><a href="">Thêm mức độ bài học</a></li>
+              <li><a href="/mucdo">Danh sách mức độ</a></li>
+              <li><a href="/mucdo/create">Thêm mức độ bài học</a></li>
             </ul>
           </li>
           <li class="sub-menu">

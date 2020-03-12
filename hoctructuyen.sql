@@ -89,7 +89,8 @@ Drop table if exists `chitietlop_user`;
 CREATE TABLE `chitietlop_user` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_chitietlophoc_monhoc` int(11) NOT NULL
+  `id_chitietlophoc_monhoc` int(11) NOT NULL,
+  `status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
