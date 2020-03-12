@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\lophoc;
 use App\ModelPublic;
 use App\monhoc;
+use App\DetailClassSubject;
 
 class AdminClassController extends Controller
 {
@@ -36,7 +37,8 @@ class AdminClassController extends Controller
              ->join('chitietlop_user','chitietlop_user.id_chitietlophoc_monhoc','=','chitietlophoc_monhoc.id')->orderBy('monhoc.id','asc')->where('id_lophoc',$id)
              ->join('users','users.id','=','chitietlop_user.id_user')
              ->select('chitietlophoc_monhoc.id','users.name','monhoc.tenmonhoc')->where('id_lophoc',$id)->get();
-            return view('admin.page.subject.listSubject')->with('data',$data);
+             //return dd($data);
+        return view('admin.page.subject.listSubject')->with('data',$data);
 
         }
         else if(ModelPublic::checkRoleTeacher()) {
@@ -122,6 +124,62 @@ class AdminClassController extends Controller
         }
         else{
             return redirect('/admin/class/list');}
+    }
+    //xoa chi tiet monhoc_lophoc
+    public function deleteDetailClass($id){
+        if(ModelPublic::checkRoleAdmin()) {
+            DetailClassSubject::destroy($id);
+
+        return redirect('/admin/class/list');
+
+        }
+        else{
+            return redirect('/admin/class/list');
+        }
+    }
+    public function showAddSubject($id){
+        if(ModelPublic::checkRoleAdmin()) {
+            $data=monhoc::join('chitietlophoc_monhoc','monhoc.id','=','chitietlophoc_monhoc.id_monhoc')
+            ->where('chitietlophoc_monhoc.id_lophoc',$id)
+            ->select('monhoc.*','chitietlophoc_monhoc.id AS id_chitiet')->get();
+            //id_chitiet la id cua bang chitietlophoc_monhoc
+            $dataSubject=monhoc::select('monhoc.*')->get();
+            request()->session()->put('id_lophoc', $id);
+
+            $data1=array();
+            for ($i=0; $i < sizeOf($dataSubject); $i++) {
+                $found = false;
+                for($j=0;$j<sizeOf($data);$j++){
+                    if($dataSubject[$i]['id']==$data[$j]['id']){
+                        $found = true;
+                        break;
+                    }
+                }
+                if($found==false){
+                    array_push($data1,$dataSubject[$i]);
+                }
+            }
+            //return dd($data1);
+            return view('admin.page.class.addSubject')->with('data',$data)->with('dataSubject', $data1);
+
+        }
+        else{
+            return redirect('/admin/class/list');
+        }
+    }
+    public function addSubject(Request $request){
+        if(ModelPublic::checkRoleAdmin()) {
+        $id=request()->session()->get('id_lophoc');
+        $classDetail=new DetailClassSubject();
+        $classDetail->id_monhoc=$request->input('subject');
+        $classDetail->id_lophoc=$id;
+        $classDetail->save();
+        return redirect('/admin/showaddsubject/view/'.$id)->with('thongbao','Thêm môn học thành công');
+
+        }
+        else{
+            return redirect('/admin/class/list');
+        }
     }
 
 

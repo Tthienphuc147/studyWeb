@@ -33,7 +33,7 @@ CREATE TABLE `baihoc` (
   `id_chitietlophoc_monhoc` int(11) NOT NULL,
   `tenbaihoc` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `thoigian` datetime NOT NULL,
   `anh` text NOT NULL,
   `id_loaibai` int(11) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `chitietbaihoc` (
   `id` int(11) NOT NULL,
   `id_baihoc` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `video` text NOT NULL,
   `audio` text NOT NULL,
   `noidungbaihoc` text NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `chitietlophoc_monhoc` (
   `id_monhoc` int(11) NOT NULL,
   `id_lophoc` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -181,7 +181,7 @@ CREATE TABLE `mucdo` (
   `id` int(11) NOT NULL,
   `tenmucdo` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -466,7 +466,11 @@ INSERT INTO `mucdo` (`id`, `tenmucdo`, `created_at`, `updated_at`) VALUES
 INSERT INTO `monhoc` (`id`, `tenmonhoc`, `anh`) VALUES
 (NULL, 'Toán', '0'),
 (NULL, 'Văn', '0'),
-(NULL, 'Vật lý', '0');
+(NULL, 'Vật lý', '0'),
+(NULL, 'Hóa học', '0'),
+(NULL, 'Công Nghệ', '0'),
+(NULL, 'Anh văn', '0'),
+(NULL, 'Sinh học', '0');
 
 --
 -- Dumping data for table `lophoc`
