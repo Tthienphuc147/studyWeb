@@ -21,6 +21,7 @@
             <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"> {{ request()->session()->get('namelogin') }}</i></button>
                     <div class="dropdown-content">
+                    <a href="/regcourse/{{ request()->session()->get('id') }}">Đăng ký lớp học</a>
                     <a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a>
                     <a href="/editprofile/{{ request()->session()->get('id') }}">Sửa tài khoản</a>
                     <a href="/logout">Đăng xuất</a>
