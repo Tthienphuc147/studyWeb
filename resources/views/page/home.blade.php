@@ -29,7 +29,7 @@ Home
 		</div>
 	</section>
 	<section class="courses-section spad">
-            @if (request()->session()->has('id_lophoc'))
+            @if (request()->session()->has('id'))
             <div class="container">
                     <div class="section-title text-center">
                         <h3>LỚP HỌC</h3>
@@ -44,7 +44,7 @@ Home
 
                         @foreach ($datalophoc as $key=>$item)
                         <div class="col-lg-4 col-md-6 course-item">
-                            @if (request()->session()->has('id_lophoc'))
+                            @if (request()->session()->has('id'))
                             <div class="course-thumb">
                                 <a href="/lophoc/{{$item['id']}}"><img src="public/img/course/1.jpg" alt="" ></a>
 

@@ -8,8 +8,10 @@ use Session;
 class RegCourseController extends Controller
 {
   
-    public function index($id)
+    public function index($id, Request $request)
     {
+        if( !$request->session()->has('id') || $request->session()->get('id')!=$id)
+            return redirect('/');
        $lop=DB::table('lophoc')->select('id','tenlophoc')->get();  
        $pending=DB::table('chitietlop_user')->where('chitietlop_user.id_user',$id)->where('status',0)
        ->join('chitietlophoc_monhoc','id_chitietlophoc_monhoc','chitietlophoc_monhoc.id')
@@ -18,7 +20,9 @@ class RegCourseController extends Controller
        ->select('chitietlop_user.id','monhoc.tenmonhoc','lophoc.tenlophoc')->get();
        return view('users.regcourse')->with('lop',$lop)->with('id',$id)->with('pending',$pending);     
     }
-    public function showmon($id, $id2){
+    public function showmon($id, $id2, Request $request){
+        if( !$request->session()->has('id') || $request->session()->get('id')!=$id)
+            return redirect('/');
         $lop=DB::table('lophoc')->select('id','tenlophoc')->get();   
 
         $list=DB::table('chitietlop_user')->where('id_user',$id)->get();
@@ -40,8 +44,10 @@ class RegCourseController extends Controller
        return view('users.show')->with('monhoc',$data)->with('lop',$lop)->with('id',$id)->with('pending',$pending)->with('tenlop',$tenlop[0]->tenlophoc); 
        
     }
-    public function register($id,$id2)
+    public function register($id,$id2, Request $request)
     {
+        if( !$request->session()->has('id') || $request->session()->get('id')!=$id)
+            return redirect('/');
         $dataInsertToDatabase = array(
             'id_user'  => $id,
             'id_chitietlophoc_monhoc' => $id2,
@@ -57,8 +63,10 @@ class RegCourseController extends Controller
         }
         return redirect("/regcourse/$id");
     }
-    public function destroy($id, $id2)
+    public function destroy($id, $id2, Request $request)
     {
+        if( !$request->session()->has('id') || $request->session()->get('id')!=$id)
+            return redirect('/');
         $deleteData = DB::table('chitietlop_user')->where('id', '=', $id2)->delete();
         if ($deleteData) {
             Session::flash('success', 'Hủy đăng ký thành công!');
