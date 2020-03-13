@@ -144,7 +144,7 @@ class AdminClassController extends Controller
             ->select('monhoc.*','chitietlophoc_monhoc.id AS id_chitiet')->get();
             //id_chitiet la id cua bang chitietlophoc_monhoc
             $dataSubject=monhoc::select('monhoc.*')->get();
-            request()->session()->put('id_lophoc', $id);
+            request()->session()->put('id_lophoc1', $id);
 
             $data1=array();
             for ($i=0; $i < sizeOf($dataSubject); $i++) {
@@ -169,7 +169,7 @@ class AdminClassController extends Controller
     }
     public function addSubject(Request $request){
         if(ModelPublic::checkRoleAdmin()) {
-        $id=request()->session()->get('id_lophoc');
+        $id=request()->session()->get('id_lophoc1');
         $classDetail=new DetailClassSubject();
         $classDetail->id_monhoc=$request->input('subject');
         $classDetail->id_lophoc=$id;
