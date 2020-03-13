@@ -49,19 +49,27 @@
                         @endif
 
                     </div>
+                    @if ($dataSubject)
                     <div class="form-group ">
-                    <div class="col-lg-6">
-                      <select name="subject" id="" class="checkbox-inline " style="width:100%">
-                        @foreach ( $dataSubject as $item)
-                            <option value="{{$item->id}}">{{$item->tenmonhoc}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                    <div class="col-lg-6">
-                        <button class="btn btn-theme" type="submit">Thêm môn học</button>
+                        <div class="col-lg-6">
 
-                    </div>
-                    </div>
+                            <select name="subject" id="" class="checkbox-inline " style="width:100%">
+                                @foreach ( $dataSubject as $item)
+                                    <option value="{{$item->id}}">{{$item->tenmonhoc}}</option>
+                                @endforeach
+                              </select>
+
+
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="btn btn-theme" type="submit">Thêm môn học</button>
+
+                        </div>
+                        </div>
+                    @else
+                        <h4>Lớp học hiện tại đã thêm đầy đủ môn học</h4>
+                    @endif
+
 
                 </form>
               </div>
