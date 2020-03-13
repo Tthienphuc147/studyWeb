@@ -72,6 +72,30 @@ Route::post('/admin/subject/update','AdminSubjectController@update');
 Route::post('/admin/subject/add','AdminSubjectController@add');
 Route::get('/admin/subject/delete/{id}','AdminSubjectController@delete');
 
+//lession
+Route::get('/admin/lession/list/{id}','AdminLessionController@showList');
+Route::get('/admin/lession/addview/{id}','AdminLessionController@showAddView');
+Route::get('/admin/lession/updateview/{id}/{id1}','AdminLessionController@showUpdateView');
+Route::post('/admin/lession/update/{id}','AdminLessionController@update');
+Route::post('/admin/lession/add/{id}','AdminLessionController@add');
+Route::get('/admin/lession/delete/{id}/{id1}','AdminLessionController@delete');
+
+//detaillession
+Route::get('/admin/detaillession/list/{id}/{id1}','AdminDetailLessionController@showList');
+Route::get('/admin/detaillession/addview/{id}/{id1}','AdminDetailLessionController@showAddView');
+Route::get('/admin/detaillession/updateview/{id}/{id1}/{id2}','AdminDetailLessionController@showUpdateView');
+Route::post('/admin/detaillession/update/{id}/{id1}','AdminDetailLessionController@update');
+Route::post('/admin/detaillession/add/{id}/{id1}','AdminDetailLessionController@add');
+Route::get('/admin/detaillession/delete/{id}/{id1}/{id2}','AdminDetailLessionController@delete');
+
+//anwdetaillession
+Route::get('/admin/anwdetaillession/list/{id}/{id1}/{id2}','AdminAnwDetailLessionController@showList');
+Route::get('/admin/anwdetaillession/addview/{id}/{id1}/{id2}','AdminAnwDetailLessionController@showAddView');
+Route::get('/admin/anwdetaillession/updateview/{id}/{id1}/{id2}/{id3}','AdminAnwDetailLessionController@showUpdateView');
+Route::post('/admin/anwdetaillession/update/{id}/{id1}/{id2}','AdminAnwDetailLessionController@update');
+Route::post('/admin/anwdetaillession/add/{id}/{id1}/{id2}','AdminAnwDetailLessionController@add');
+Route::get('/admin/anwdetaillession/delete/{id}/{id1}/{id2}/{id3}','AdminAnwDetailLessionController@delete');
+
 //loaibaihoc
 Route::get('loaibaihoc', 'loaibaihocController@index'); // Hiển thị danh sách loại bài học
 Route::get('loaibaihoc/create', 'loaibaihocController@create'); // Thêm mới loại bài học
@@ -114,3 +138,9 @@ Route::get('regcourse/huy/{id}/{id2}','RegCourseController@destroy');
 
 Route::get('/admin/addteachersubject/show/{id}','AdminTeacherSubjectController@showList');
 Route::post('/admin/addteachersubject/add/{id}','AdminTeacherSubjectController@add');
+
+//addusersubject
+Route::get('/admin/usersubject/list/{id}','AdminUserSubjectController@showList');
+Route::get('/admin/usersubject/add/{id}/{id1}','AdminUserSubjectController@add');
+Route::get('/admin/usersubject/addac/{id}/{id1}','AdminUserSubjectController@addac');
+Route::get('/admin/usersubject/delete/{id}/{id1}','AdminUserSubjectController@delete');

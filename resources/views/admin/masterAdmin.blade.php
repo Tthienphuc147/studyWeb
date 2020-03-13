@@ -17,6 +17,7 @@
   <!-- Custom styles for this template -->
   <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('public/admin/css/style-responsive.css') }}" rel="stylesheet">
+  <script src="{{ asset('public/ckeditor/ckeditor.js') }}"></script>
 
 </head>
 

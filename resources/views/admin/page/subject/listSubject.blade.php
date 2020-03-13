@@ -11,7 +11,9 @@
               <th>Tên môn học </th>
               <th>Giáo viên quản lý</th>
               <th>Ảnh</th>
-              <th>Thao Tác</th>
+              <th>Xóa môn</th>
+              <th>Quản lý bài học</th>
+              <th> Quản lý học viên<th>
             </tr>
           </thead>
           <tbody>
@@ -24,7 +26,12 @@
                 <td>
                     <a href="/admin/classsubject/delete/{{$item->id}}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
                 </td>
-
+                <td>
+                <a href="/admin/lession/list/{{$item->id}}"><button class="btn btn-success btn-xs"><i class="fa fa-eye "></i></button></a>
+                </td>
+                <td>
+                <a href="/admin/usersubject/list/{{$item->id}}"><button class="btn btn-success btn-xs"><i class="fa fa-eye "></i></button></a>
+                </td>
               @endforeach
 
           </tbody>
