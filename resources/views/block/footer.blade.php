@@ -1,72 +1,59 @@
-<footer class="footer-section">
-    <div class="container footer-top">
-        <div class="row">
-            <!-- widget -->
-            <div class="col-sm-6 col-lg-3 footer-widget">
-                <div class="about-widget">
-                    <img src="/public/img/logo-light.png" alt="">
-                    <p>orem ipsum dolor sit amet, consecter adipiscing elite. Donec minos varius, viverra justo ut, aliquet nisl.</p>
-                    <div class="social pt-1">
-                        <a href=""><i class="fa fa-twitter-square"></i></a>
-                        <a href=""><i class="fa fa-facebook-square"></i></a>
-                        <a href=""><i class="fa fa-google-plus-square"></i></a>
-                        <a href=""><i class="fa fa-linkedin-square"></i></a>
-                        <a href=""><i class="fa fa-rss-square"></i></a>
+<footer class="site-footer">
+            <div class="container">
+                <div id="footer-widgets">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 widget-container">
+                            <div id="text-2" class="widget widget_text">
+                                <h3 class="footer-widget-title">AI Learning</h3>
+                                <span class="underline left"></span>
+                                <div class="textwidget">
+                                    Hệ thống học trực tuyến
+                                </div>
+                                <address>
+                                    <div class="info">
+                                        <i class="fa fa-location-arrow"></i>
+                                        <span>Đà nẵng</span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-envelope"></i>
+                                        <span><a href="mailto:"></a></span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-phone"></i>
+                                        <span><a href="tel:012-345-6789"></a></span>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <div id="nav_menu-2" class="widget widget_nav_menu">
+                                <h3 class="footer-widget-title">Truy cập nhanh</h3>
+                                <span class="underline left"></span>
+                                <div class="menu-quick-links-container">
+                                    <ul id="menu-quick-links" class="menu">
+                                        <li><a href="#">Trang chủ</a></li>
+                                        <li><a href="#">Lớp học</a></li>
+                                        <li><a href="#">Khóa học</a></li>
+                                        <li><a href="#">Liên hệ</a></li>
+                                        <li><a href="#">Bảng xếp hạng</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245368.2610477531!2d107.93804189887575!3d16.071763494088405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0x1df0cb4b86727e06!2zxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1584119654019!5m2!1svi!2s" width="800" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                        <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
+                    </div>
+                </div>                
+            </div>
+            <div class="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-text col-md-3">
+                            <p><a target="_blank" href="">AI Learning</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- widget -->
-            <div class="col-sm-6 col-lg-3 footer-widget">
-                <h6 class="fw-title">USEFUL LINK</h6>
-                <div class="dobule-link">
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Events</a></li>
-                        <li><a href="">Features</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="">Policy</a></li>
-                        <li><a href="">Term</a></li>
-                        <li><a href="">Help</a></li>
-                        <li><a href="">FAQs</a></li>
-                        <li><a href="">Site map</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- widget -->
-            <div class="col-sm-6 col-lg-3 footer-widget">
-                <h6 class="fw-title">RECENT POST</h6>
-                <ul class="recent-post">
-                    <li>
-                        <p>Snackable study:How to break <br> up your master's degree</p>
-                        <span><i class="fa fa-clock-o"></i>24 Mar 2018</span>
-                    </li>
-                    <li>
-                        <p>Open University plans major <br> cuts to number of staff</p>
-                        <span><i class="fa fa-clock-o"></i>24 Mar 2018</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- widget -->
-            <div class="col-sm-6 col-lg-3 footer-widget">
-                <h6 class="fw-title">CONTACT</h6>
-                <ul class="contact">
-                    <li><p><i class="fa fa-map-marker"></i> 546/48 Tôn Đản, Đà Nẵng city</p></li>
-                    <li><p><i class="fa fa-phone"></i> 0789411110</p></li>
-                    <li><p><i class="fa fa-envelope"></i> nghiadh2016@gmail.com</p></li>
-                    <li><p><i class="fa fa-clock-o"></i> Monday - Friday, 08:00AM - 06:00 PM</p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- copyright -->
-    <div class="copyright">
-        <div class="container">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Design by startup team: Trần Văn Hưng - Bùi Trọng Nghĩa - Phan Đinh Thiên Phúc - Phan Minh Hải</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        </div>
-    </div>
-</footer>
+        </footer>

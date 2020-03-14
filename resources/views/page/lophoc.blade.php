@@ -1,18 +1,17 @@
-@extends('master')
+@extends('masterPage')
 @section('title')
-Lớp học
+Môn học
+@endsection
+@section('titlePage')
+Danh sách môn học
 @endsection
 @section('content')
-<div class="site-breadcrumb">
-		<div class="container">
-
-			<a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-			<span>Môn học</span>
-		</div>
-	</div>
-<section class="full-courses-section spad pt-0">
-		<div class="container">
-		@if ( Session::has('error') )
+ <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="books-full-width">
+                        <div class="container">
+                       		@if ( Session::has('error') )
         <div class="alert alert-danger alert-dismissible" role="alert">
             <strong>{{ Session::get('error') }}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -20,29 +19,39 @@ Lớp học
                 <span class="sr-only">Close</span>
             </button>
         </div>
-    	@endif     
-			<div class="row">
-                <!-- course item -->
-                @foreach ($datamonhoc as $item)
-                <div class="col-lg-4 col-md-6 course-item">
-                        <div class="course-thumb">
-                        <a href="/baihoc/{{ $idlophoc }}/{{ $item->id_monhoc }}"><img src="/public/img/course/1.jpg" alt=""></a>
-                            <div class="course-cat">
-                            <span>{{ $item->tenmonhoc }}</span>
+    	@endif  
+                            <div class="booksmedia-fullwidth">
+                                <ul>
+                                  @foreach ($datamonhoc as $item)
+                                    <li>
+                                        <div class="book-list-icon blue-icon"></div>
+                                        <figure>
+                                            <a href="/baihoc/{{ $idlophoc }}/{{ $item->id_monhoc }}"><img src="https://images.all-free-download.com/images/graphiclarge/student_graduation_background_boy_education_design_elements_icons_6837816.jpg" alt="Book"></a>
+                                            <figcaption>
+                                                <header>
+                                                    <h4>{{ $item->tenlophoc}}</h4>
+                                                    <p><strong>Môn học:</strong>  {{ $item->tenmonhoc }}</p>
+                                                </header>
+                                                {{-- <p style="padding-top:30px">Làm quen với các phép cộng trừ,đếm đến 10.Nhận biết hình vuông,hình tròn...</p> --}}
+                                                <a href="/baihoc/{{ $idlophoc }}/{{ $item->id_monhoc }}">
+                                                    <div class="actions">
+                                                        Vào học <i class="fa fa-long-arrow-right"></i>
+                                                    </div>
+                                                </a>
+                                              
+                                            </figcaption>
+                                        </figure>                                                
+                                    </li>
+                       @endforeach
+                                
+                                </ul>
                             </div>
+                            
                         </div>
-
+                     
                     </div>
-                @endforeach
-
-				<!-- course item -->
-			</div>
-
-		</div>
-	</section>
-	<!-- Courses section end-->
-
-
-	<!-- Newsletter section -->
+                </main>
+            </div>
+        </div>
 
 @endsection

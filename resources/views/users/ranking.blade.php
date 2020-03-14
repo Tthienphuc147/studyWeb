@@ -1,14 +1,12 @@
-@extends('master')
+@extends('masterPage')
 @section('title')
-Lớp học
+Bảng xếp hạng
+@endsection
+@section('titlePage')
+Bảng xếp hạng
 @endsection
 @section('content')
-<div class="site-breadcrumb">
-		<div class="container">
-			<a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-			<span>Ranking</span>
-		</div>
-	</div>
+
 <section class="full-courses-section spad pt-0">
 		<div class="container">
 		<table class="table table-striped">

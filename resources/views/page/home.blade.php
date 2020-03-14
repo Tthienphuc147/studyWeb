@@ -1,343 +1,265 @@
 @extends('master')
 @section('title')
-Home
+Trang chủ
 @endsection
 @section('content')
-@include('block.slider')
-	<!-- Counter section  -->
-	<section class="counter-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-7 col-md-6">
-					<div class="big-icon">
-						<i class="fa fa-graduation-cap"></i>
-					</div>
-					<div class="counter-content">
-						<h2>Khóa sắp tới:Toán Lớp 1</h2>
-						<p><i class="fa fa-calendar-o"></i>07:00 PM - 09:00 PM</p>
-					</div>
-				</div>
-				<div class="col-lg-5 col-md-6">
-					<div class="counter">
-						<div class="counter-item"><h4>20</h4>Days</div>
-						<div class="counter-item"><h4>08</h4>Hrs</div>
-						<div class="counter-item"><h4>40</h4>Mins</div>
-						<div class="counter-item"><h4>56</h4>secs</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="courses-section spad">
-            @if (request()->session()->has('id'))
+	<div class="layout-v2">
+        <section class="features">
             <div class="container">
-                    <div class="section-title text-center">
-                        <h3>LỚP HỌC</h3>
-
-                    </div>
-
-                    <button type="button" class="btn peach-gradient btn-lg"
-                    style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
-                    <h5 style="color:white;">Những lớp học được mở</h5></button>
-                    <div class="row">
-                        <!-- course item -->
-
-                        @foreach ($datalophoc as $key=>$item)
-                        <div class="col-lg-4 col-md-6 course-item">
-                            @if (request()->session()->has('id'))
-                            <div class="course-thumb">
-                                <a href="/lophoc/{{$item['id']}}"><img src="public/img/course/1.jpg" alt="" ></a>
-
-                                <div class="course-cat">
-                                <span>{{ $item['tenlophoc'] }}</span>
-                                </div>
-                            </div>
-                            @php
-                                $key++
-                            @endphp
-                                @if ($key>=request()->session()->get('id_lophoc'))
-                                @break
-                                @endif
-
-                            @endif
+                <ul>
+                    <li class="yellow-hover">
+                        <div class="feature-box">
+                            <i class="yellow"></i>
+                            <h3>lớp học</h3>
+                            <p>Hệ thống lớp học toàn diện từ bậc tiểu học đến đại học.</p>
+                            <a class="yellow" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
                         </div>
+                    </li>
+                    <li class="light-green-hover">
+                        <div class="feature-box">
+                            <i class="light-green"></i>
+                            <h3>bài học</h3>
+                            <p>Hệ thống bài học cung cấp những bài học chất lượng.</p>
+                            <a class="light-green" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="blue-hover">
+                        <div class="feature-box">
+                            <i class="blue"></i>
+                            <h3>bài tập</h3>
+                            <p>Hệ thống bài tập chất lượng được xây dựng khoa học.</p>
+                            <a class="blue" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="red-hover">
+                        <div class="feature-box">
+                            <i class="red"></i>
+                            <h3>Học viên</h3>
+                            <p>Hệ thống xây dựng xung quanh học viên,mang đến những trải nghiệm tốt nhất cho học viên.</p>
+                            <a class="red" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="violet-hover">
+                        <div class="feature-box">
+                            <i class="violet"></i>
+                            <h3>Giáo viên</h3>
+                            <p>Hệ thống lựa chọn những giáo viên có kiến thức chuyên môn tốt,cung cấp những kiến thức bổ ích cho học viên.</p>
+                            <a class="violet" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="green-hover">
+                        <div class="feature-box">
+                            <i class="green"></i>
+                            <h3>Hình thức học</h3>
+                            <p>Hệ thống xây dựng hình thức học một cách khoa học cho các học viên,từ đó giúp các học viên hiểu rõ được bản chất.</p>
+                            <a class="green" href="#">
+                                Xem chi tiết <i class="fa fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Features -->
+
+        <!-- Start: Category Filter -->
+        <section class="category-filter section-padding">
+            <div class="container">
+                <div class="row">
+				 @if (request()->session()->has('id'))
+					 <div class="center-content">
+                        <h2 class="section-title">Danh sách lớp học được học</h2>
+                        <span class="underline center"></span>
+                        <p class="lead">Đây là danh sách lớp học mà bạn đã đủ điều kiện đăng ký để học.</p>
+                    </div>
+				@else
+					   <div class="center-content">
+                        <h2 class="section-title">hệ thống lớp học</h2>
+                        <span class="underline center"></span>
+                        <p class="lead">Danh sách các lớp học của hệ thống</p>
+                    </div>
+				@endif
+                 
+					 @if (request()->session()->has('id'))
+                    <div id="category-filter">
+                        <ul class="category-list">
+						   @foreach ($datalophoc as $key=>$item)
+                        <li class="category-item adults">
+ 							@if (request()->session()->has('id'))
+                                <figure>
+                                    <img src="https://images.all-free-download.com/images/graphiclarge/student_graduation_background_boy_education_design_elements_icons_6837816.jpg" alt="New Releaase" />
+                                    <figcaption class="bg-yellow">
+                                        <div class="diamond">
+                                            <i class="book"></i>
+                                        </div>
+                                        <div class="info-block">
+                                            <h2>{{ $item['tenlophoc'] }}</h2>
+                                            <br>
+                                            <a href="/lophoc/{{$item['id']}}" class="info-sub-block">Vào lớp <i class="fa fa-long-arrow-right"></i></a>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+								  @php
+                                $key++
+								@endphp
+									@if ($key>=request()->session()->get('id_lophoc'))
+									@break
+									@endif
+
+							@endif
+                        </li>
                         @endforeach
 
-
-                        <!-- course item -->
-
+                            
+                         
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
-
-                </div>
-                <button type="button" class="btn peach-gradient btn-lg"
-                style="padding:10px 5px;width:400px;margin:10px 0px;background: linear-gradient(90deg, rgba(237,177,91,0.9780287114845938) 27%, rgba(218,89,15,0.7259278711484594) 59%, rgba(233,164,51,1) 100%);" >
-                <h5 style="color:white;">Những lớp học bị khóa</h5></button>
-                <div class="row">
-                        <!-- course item -->
-                        @php
+					{{-- <div id="category-filter">
+                        <ul class="category-list">
+						 @php
                             $data=array_splice($datalophoc,request()->session()->get('id_lophoc'),count($datalophoc));
                         @endphp
-                        @foreach ($data as $key=>$item)
-                        <div class="col-lg-4 col-md-6 course-item">
-
-
-                             <div class="course-thumb">
-                                   <img src="public/img/course/1.jpg" alt="" style="opacity:0.2">
-
-                                    <div class="course-cat">
-                                    <span>{{ $item['tenlophoc'] }} <i class="fa fa-lock" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-
-
-
-
-                        </div>
+						   @foreach ($datalophoc as $key=>$item)
+                        <li class="category-item adults">
+                                <figure style="opacity:0.2">
+                                    <img src="https://images.all-free-download.com/images/graphiclarge/student_graduation_background_boy_education_design_elements_icons_6837816.jpg" alt="New Releaase" />
+                                    <figcaption class="bg-yellow">
+                                        <div class="diamond">
+                                            <i class="book"></i>
+                                        </div>
+                                        <div class="info-block">
+                                            <h2>{{ $item['tenlophoc'] }}</h2>
+                                            <br>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                        </li>
                         @endforeach
 
+                            
+                         
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div> --}}
 
-                        <!-- course item -->
-
-                </div>
-            @else
-            <div class="container">
-                    <div class="row">
-                            <!-- course item -->
-
-                            @foreach ($datalophoc as $key=>$item)
-                            <div class="col-lg-4 col-md-6 course-item">
-
-
-                                 <div class="course-thumb">
-                                        <a href="/loginview"><img src="public/img/course/1.jpg" alt="" ></a>
-
-                                        <div class="course-cat">
-                                        <span>{{ $item['tenlophoc'] }} </i></span>
+					
+					 @else
+               	<div id="category-filter">
+                        <ul class="category-list">
+						   @foreach ($datalophoc as $key=>$item)
+                        <li class="category-item adults">
+                          <figure>
+                                    <img src="https://images.all-free-download.com/images/graphiclarge/student_graduation_background_boy_education_design_elements_icons_6837816.jpg" alt="New Releaase" />
+                                    <figcaption class="bg-yellow">
+                                        <div class="diamond">
+                                            <i class="book"></i>
                                         </div>
-                                    </div>
+                                        <div class="info-block">
+                                            <h2>{{ $item['tenlophoc'] }}</h2>
+                                            <br>
+                                            <a href="/loginview" class="info-sub-block">Vào lớp <i class="fa fa-long-arrow-right"></i></a>
+                                        </div>
+                                    </figcaption>
+                                </figure>
 
 
+                        </li>
+                           
+                        @endforeach
 
-
-                            </div>
-                            @endforeach
-
-
-                            <!-- course item -->
-
+                            
+                         
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
-            </div>
 
             @endif
+                </div>
+            </div>
+        </section>
+        <!-- Start: Category Filter -->
 
+        <!-- Start: Welcome Section -->
+        <section class="welcome-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="welcome-wrap">
+                            <div class="welcome-text">
+                                <h2 class="section-title">Hệ thống học trực tuyến</h2>
+                                <h2 class="section-title">AI Learning</h2>
+                                <span class="underline left"></span>
+                                <p>Hệ thống học trực tuyến AI Learning là môi trường học trực tuyến lý tưởng.Hệ thống toàn diện từ cấp Tiểu học đến bậc Đại học.Cung cấp các bài tập và bài học đầy đủ và chi tiết được biên soạn bởi các giáo viên đã được hệ thống tuyển chọn.Hệ thống mang đến tính tương tác cho người học từ đó tạo nên sự thú vị trong quá trình học.</p>
+                                <a class="btn btn-primary" href="#">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="welcome-image">
+                            <img src="images/wellcome-image.jpg" class="algin-right" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End: Welcome Section -->
 
-	</section>
-	<!-- Courses section end-->
+        <!-- Start: Facts Counter -->
+        <div class="layout-v2-counter">
+            <div class="facts-counter">
+                <div class="container">
+                    <div class="row">
+                        <ul>
+                            <li class="color-light-green">
+                                <div class="fact-item">
+                                    <div class="fact-icon">
+                                        <i class="ebook"></i>
+                                    </div>
+                                    <span>Giảng viên<strong class="fact-counter">45780</strong></span>
+                                </div>
+                            </li>
+                            <li class="color-green">
+                                <div class="fact-item">
+                                    <div class="fact-icon">
+                                        <i class="eaudio"></i>
+                                    </div>
+                                    <span>Học viên<strong class="fact-counter">32450</strong></span>
+                                </div>
+                            </li>
+                            <li class="color-red">
+                                <div class="fact-item">
+                                    <div class="fact-icon">
+                                        <i class="magazine"></i>
+                                    </div>
+                                    <span>Lớp học<strong class="fact-counter">14450</strong></span>
+                                </div>
+                            </li>
+                            <li class="color-blue">
+                                <div class="fact-item">
+                                    <div class="fact-icon">
+                                        <i class="videos"></i>
+                                    </div>
+                                    <span>Bài học<strong class="fact-counter">32450</strong></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: Facts Counter -->
 
-
-	<!-- Fact section -->
-	<section class="fact-section spad set-bg" data-setbg="public/img/fact-bg.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-lg-3 fact">
-					<div class="fact-icon">
-						<i class="ti-crown"></i>
-					</div>
-					<div class="fact-text">
-						<h2>50</h2>
-						<p>YEARS</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3 fact">
-					<div class="fact-icon">
-						<i class="ti-briefcase"></i>
-					</div>
-					<div class="fact-text">
-						<h2>80</h2>
-						<p>TEACHERS</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3 fact">
-					<div class="fact-icon">
-						<i class="ti-user"></i>
-					</div>
-					<div class="fact-text">
-						<h2>500</h2>
-						<p>STUDENTS</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3 fact">
-					<div class="fact-icon">
-						<i class="ti-pencil-alt"></i>
-					</div>
-					<div class="fact-text">
-						<h2>800+</h2>
-						<p>LESSONS</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Fact section end-->
-
-
-	<!-- Event section -->
-	<section class="event-section spad">
-		<div class="container">
-			<div class="section-title text-center">
-				<h3>OUR EVENTS</h3>
-				<p>Our department  initiated a series of events</p>
-			</div>
-			<div class="row">
-				<div class="col-md-6 event-item">
-					<div class="event-thumb">
-						<img src="public/img/event/1.jpg" alt="">
-						<div class="event-date">
-							<span>24 Mar 2018</span>
-						</div>
-					</div>
-					<div class="event-info">
-						<h4>The dos and don'ts of writing a personal<br>statement for languages</h4>
-						<p><i class="fa fa-calendar-o"></i> 08:00 AM - 10:00 AM <i class="fa fa-map-marker"></i> Center Building, Block A</p>
-						<a href="" class="event-readmore">REGISTER <i class="fa fa-angle-double-right"></i></a>
-					</div>
-				</div>
-				<div class="col-md-6 event-item">
-					<div class="event-thumb">
-						<img src="public/img/event/2.jpg" alt="">
-						<div class="event-date">
-							<span>22 Mar 2018</span>
-						</div>
-					</div>
-					<div class="event-info">
-						<h4>University interview tips:<br>confidence won't make up for flannel</h4>
-						<p><i class="fa fa-calendar-o"></i> 08:00 AM - 10:00 AM <i class="fa fa-map-marker"></i> Center Building, Block A</p>
-						<a href="" class="event-readmore">REGISTER <i class="fa fa-angle-double-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Event section end -->
-
-
-	<!-- Gallery section -->
-	<div class="gallery-section">
-		<div class="gallery">
-			<div class="grid-sizer"></div>
-			<div class="gallery-item gi-big set-bg" data-setbg="public/img/gallery/1.jpg">
-				<a class="img-popup" href="public/img/gallery/1.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item set-bg" data-setbg="public/img/gallery/2.jpg">
-				<a class="img-popup" href="public/img/gallery/2.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item set-bg" data-setbg="public/img/gallery/3.jpg">
-				<a class="img-popup" href="public/img/gallery/3.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item gi-long set-bg" data-setbg="public/img/gallery/5.jpg">
-				<a class="img-popup" href="public/img/gallery/5.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item gi-big set-bg" data-setbg="public/img/gallery/8.jpg">
-				<a class="img-popup" href="public/img/gallery/8.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item gi-long set-bg" data-setbg="public/img/gallery/4.jpg">
-				<a class="img-popup" href="public/img/gallery/4.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item set-bg" data-setbg="public/img/gallery/6.jpg">
-				<a class="img-popup" href="public/img/gallery/6.jpg"><i class="ti-plus"></i></a>
-			</div>
-			<div class="gallery-item set-bg" data-setbg="public/img/gallery/7.jpg">
-				<a class="img-popup" href="public/img/gallery/7.jpg"><i class="ti-plus"></i></a>
-			</div>
-		</div>
-	</div>
-	<!-- Gallery section -->
-
-
-	<!-- Blog section -->
-	<section class="blog-section spad">
-		<div class="container">
-			<div class="section-title text-center">
-				<h3>LATEST NEWS</h3>
-				<p>Get latest breaking news & top stories today</p>
-			</div>
-			<div class="row">
-				<div class="col-xl-6">
-					<div class="blog-item">
-						<div class="blog-thumb set-bg" data-setbg="public/img/blog/1.jpg"></div>
-						<div class="blog-content">
-							<h4>Parents who try to be their children’s best friends</h4>
-							<div class="blog-meta">
-								<span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
-								<span><i class="fa fa-user"></i> Owen Wilson</span>
-							</div>
-							<p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet. Aenean interdus mid vitae sed accumsan...</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6">
-					<div class="blog-item">
-						<div class="blog-thumb set-bg" data-setbg="public/img/blog/2.jpg"></div>
-						<div class="blog-content">
-							<h4>Graduations could be delayed as external examiners</h4>
-							<div class="blog-meta">
-								<span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
-								<span><i class="fa fa-user"></i> Owen Wilson</span>
-							</div>
-							<p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet. Aenean interdus mid vitae sed accumsan...</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6">
-					<div class="blog-item">
-						<div class="blog-thumb set-bg" data-setbg="public/img/blog/3.jpg"></div>
-						<div class="blog-content">
-							<h4>Private schools adopt a Ucas style application system</h4>
-							<div class="blog-meta">
-								<span><i class="fa fa-calendar-o"></i> 24 Mar 2018</span>
-								<span><i class="fa fa-user"></i> Owen Wilson</span>
-							</div>
-							<p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet. Aenean interdus mid vitae sed accumsan...</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6">
-					<div class="blog-item">
-						<div class="blog-thumb set-bg" data-setbg="public/img/blog/4.jpg"></div>
-						<div class="blog-content">
-							<h4>Cambridge digs in at the top of university league table</h4>
-							<div class="blog-meta">
-								<span><i class="fa fa-calendar-o"></i> 23 Mar 2018</span>
-								<span><i class="fa fa-user"></i> Owen Wilson</span>
-							</div>
-							<p>Integer luctus diam ac scerisque consectetur. Vimus dot euismod neganeco lacus sit amet. Aenean interdus mid vitae sed accumsan...</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog section -->
-
-
-	<!-- Newsletter section -->
-	<section class="newsletter-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-lg-7">
-					<div class="section-title mb-md-0">
-					<h3>NEWSLETTER</h3>
-					<p>Subscribe and get the latest news and useful tips, advice and best offer.</p>
-				</div>
-				</div>
-				<div class="col-md-7 col-lg-5">
-					<form class="newsletter">
-						<input type="text" placeholder="Enter your email">
-						<button class="site-btn">SUBSCRIBE</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Newsletter section end -->
+        <!-- Start: Footer -->
+    </div>
 @endsection

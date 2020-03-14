@@ -1,109 +1,84 @@
-@extends('master')
+@extends('masterPage')
 @section('title')
 Đăng ký
 @endsection
+@section('titlePage')
+Đăng ký
+@endsection
 @section('content')
-<div class="site-breadcrumb">
-		<div class="container">
-			<a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
-			<span>Đăng ký</span>
-		</div>
-	</div>
-<section class="full-courses-section spad pt-0">
-		<div class="container">
-			<div class="login-page">
-                <h2>ĐĂNG KÝ TÀI KHOẢN HỌC VIÊN</h2>
+<div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="signin-main">
+                        <div class="container">
+                            <div class="woocommerce">
+                                <div class="woocommerce-login">
+                                    <div class="company-info signin-register">
+                            
+                                            <div class="row" style="display: flex;justify-content: center;">
+                                                <div class="col-md-8">
+                                                    <div class="company-detail bg-dark ">
+                                                        <div class="signin-head">
+                                                            <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+                                                            <span class="underline left"></span>
+                                                        </div>
+                                                        @if (count($errors)>0)
+                                                        <div class="alert alert-danger">
+                                                            @foreach ($errors->all() as $err)
+                                                                {{$err}}<br>
+                                                            @endforeach
+                                                        </div>
+                                    
+                                                        @endif
+                                                        @if (session('thongbao'))
+                                                            <div class="alert alert-success">
+                                                                {{session('thongbao')}}
+                                                            </div>
+                                                        @endif 
+                                                    
+                                                        <form class="login"  action="/register" method="POST">
+                                                            <{{ csrf_field() }} 
+                                                            <p class="form-row form-row-first input-required">
+                                                                
+                                                                <input type="text" placeholder="Họ và tên (*)" name="name" class="input-text">
+                                                             </p>
+                                                            <p class="form-row form-row-last input-required">
+                                                               <input type="hidden" name="_token" value={{csrf_token()}}> 
+                                                               
+                                                                <input type="email" placeholder="Email (*)"  name="email" class="input-text">
+                                                            </p>
+                                                            <p class="form-row form-row-first input-required">
+                                                               
+                                                                <input type="password" placeholder="Mật khẩu (*)"  name="password" class="input-text">
+                                                             </p>
+                                                            <p class="form-row form-row-last input-required">
+                                                               
+                                                                <input type="password" placeholder="Nhập lại mật khẩu (*)"  name="passwordRetype" class="input-text">
+                                                            </p>
+                                                            <p class="form-row form-row-first input-required">
+                                                              
+                                                                <input type="tel" placeholder="Số điện thoại (*)"  name="phone" class="input-text">
+                                                             </p>
+                                                            <p class="form-row form-row-last input-required">
+                                                              
+                                                                <input type="date"  name="ngaysinh" class="input-text">
+                                                            </p>
+                                                            <div class="clear"></div>
 
-                <div class="form register-form">
-                    @if (count($errors)>0)
-                    <div class="alert alert-danger">
-                        @foreach ($errors->all() as $err)
-                            {{$err}}<br>
-                        @endforeach
-                    </div>
+                                                            <input type="submit" value="đăng ký" name="login" class="button btn btn-default">
+                                                            <div class="clear"></div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                  
 
-                    @endif
-                    @if (session('thongbao'))
-                        <div class="alert alert-success">
-                            {{session('thongbao')}}
-                        </div>
-                    @endif
-
-
-                  <form  action="/register" method="POST">
-                    {{ csrf_field() }}
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Họ và tên (*)
-                        </div>
-                        <div class="col-8">
-                            <input type="text" placeholder="Nhập họ và tên" name="name"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Email (*)
-                        </div>
-                        <div class="col-8">
-                            <input type="email" placeholder="Nhập email" name="email"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Mật khẩu (*)
-                        </div>
-                        <div class="col-8">
-                            <input type="password" placeholder="Nhập mật khẩu" name="password"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Nhập lại mật khẩu (*)
-                        </div>
-                        <div class="col-8">
-                            <input type="password" placeholder="Nhập lại mật khẩu" name="passwordRetype"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Số điện thoại (*)
-                        </div>
-                        <div class="col-8">
-                            <input type="text" placeholder="Nhập số điện thoại" name="phone"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <input type="hidden" name="_token" value={{csrf_token()}}>
-                        <div class="col-4 text-left">
-                            Ngày sinh
-                        </div>
-                        <div class="col-8">
-                            <input type="date" placeholder="Nhập ngày sinh" name="ngaysinh" />
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-                   <button id="register" type="submit" >Đăng ký </button>
-                  </form>
-                </div>
-              </div>
-
-		</div>
-	</section>
-	<!-- Courses section end-->
-
-
-	<!-- Newsletter section -->
-
+                </main>
+            </div>
+        </div>
 @endsection
