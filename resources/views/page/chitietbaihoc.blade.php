@@ -164,7 +164,7 @@ Bài tập
                                                     @foreach ($dapan as $item)
 
                                                                     <div class="inputGroup">
-                                                                        <input id="{{ $item->id }}" name="{{ $item->id }}" type="radio"/>
+                                                                        <input id="{{ $item->id }}" name="{{ $item->id }}" value="{{ $item->id }}" type="radio"/>
                                                                         <label for="{{ $item->id }}">{{ $item->luachon }}</label>
                                                                       </div>
                                                     @endforeach
