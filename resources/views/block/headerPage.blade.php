@@ -76,7 +76,7 @@
                                         @if (request()->session()->has('id'))
                                         <li class="dropdown">
                                           <a data-toggle="dropdown" class="dropdown-toggle disabled">   {{ request()->session()->get('namelogin') }}</a>
-                                     
+
                                         <ul class="dropdown-menu">
                                             <li><a href="/regcourse/{{ request()->session()->get('id') }}">Đăng ký lớp học</a></li>
                                             <li><a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a></li>
@@ -104,7 +104,7 @@
                                        @if (request()->session()->has('id'))
                                         <li class="dropdown">
                                           <a data-toggle="dropdown" class="dropdown-toggle disabled">   {{ request()->session()->get('namelogin') }}</a>
-                                     
+
                                         <ul class="dropdown-menu">
                                             <li><a href="/regcourse/{{ request()->session()->get('id') }}">Đăng ký lớp học</a></li>
                                             <li><a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a></li>
@@ -122,10 +122,5 @@
         </header>
            <section class="page-banner services-banner">
             <div class="container">
-                <div class="banner-header">
-                    <h2>@yield('titlePage')</h2>
-                    <span class="underline center"></span>
-
-                </div>
             </div>
         </section>

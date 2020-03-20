@@ -77,7 +77,7 @@
                                            @if (request()->session()->has('id'))
                                         <li class="dropdown" style="margin-left:15rem">
                                           <a data-toggle="dropdown" class="dropdown-toggle disabled " href="">   {{ request()->session()->get('namelogin') }}</a>
-                                     
+
                                         <ul class="dropdown-menu">
                                             <li><a href="/regcourse/{{ request()->session()->get('id') }}">Đăng ký lớp học</a></li>
                                             <li><a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a></li>
@@ -105,7 +105,7 @@
                                        @if (request()->session()->has('id'))
                                         <li class="dropdown">
                                           <a data-toggle="dropdown" class="dropdown-toggle disabled">   {{ request()->session()->get('namelogin') }}</a>
-                                     
+
                                         <ul class="dropdown-menu">
                                             <li><a href="/regcourse/{{ request()->session()->get('id') }}">Đăng ký lớp học</a></li>
                                             <li><a href="/users/{{ request()->session()->get('id') }}">Tài khoản</a></li>
@@ -122,14 +122,14 @@
             </div>
         </header>
         <!-- End: Header Section -->
-        
+
         <!-- Start: Slider Section -->
         <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
             <!-- Carousel slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <figure>
-                        <img alt="Home Slide" src="https://sas-production-uploads.s3.eu-west-2.amazonaws.com/article_main_img/tool/large_534903854.png" />
+                        <img alt="Home Slide" src="/public/images/page-banners/2.jpg" />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
@@ -141,25 +141,13 @@
                 </div>
                 <div class="item ">
                     <figure>
-                        <img alt="Home Slide" src="https://sas-production-uploads.s3.eu-west-2.amazonaws.com/article_main_img/tool/large_534903854.png" />
+                        <img alt="Home Slide" src="/public/images/page-banners/2.jpg" />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
                             <h3>Hệ thống học trực tuyến </h3>
                             <h2>AI Learning</h2>
-                            <p>Hãy khám phá những điều thú vị từ những lớp học.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item ">
-                    <figure>
-                        <img alt="Home Slide" src="https://sas-production-uploads.s3.eu-west-2.amazonaws.com/article_main_img/tool/large_534903854.png" />
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Hệ thống học trực tuyến </h3>
-                            <h2>AI Learning</h2>
-                            <p>Hãy khám phá những điều thú vị từ những lớp học.</p>
+                            <p>Hệ thống bài tập phong phú.</p>
                         </div>
                     </div>
                 </div>
@@ -168,6 +156,5 @@
             <ol class="carousel-indicators">
                 <li data-target="#home-v1-header-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#home-v1-header-carousel" data-slide-to="1"></li>
-                <li data-target="#home-v1-header-carousel" data-slide-to="2"></li>
             </ol>
         </div>

@@ -89,7 +89,7 @@ Trang chủ
                         <p class="lead">Danh sách các lớp học của hệ thống</p>
                     </div>
 				@endif
-                 
+
 					 @if (request()->session()->has('id'))
                     <div id="category-filter">
                         <ul class="category-list">
@@ -120,40 +120,11 @@ Trang chủ
                         </li>
                         @endforeach
 
-                            
-                         
+
+
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-					{{-- <div id="category-filter">
-                        <ul class="category-list">
-						 @php
-                            $data=array_splice($datalophoc,request()->session()->get('id_lophoc'),count($datalophoc));
-                        @endphp
-						   @foreach ($datalophoc as $key=>$item)
-                        <li class="category-item adults">
-                                <figure style="opacity:0.2">
-                                    <img src="https://images.all-free-download.com/images/graphiclarge/student_graduation_background_boy_education_design_elements_icons_6837816.jpg" alt="New Releaase" />
-                                    <figcaption class="bg-yellow">
-                                        <div class="diamond">
-                                            <i class="book"></i>
-                                        </div>
-                                        <div class="info-block">
-                                            <h2>{{ $item['tenlophoc'] }}</h2>
-                                            <br>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                        </li>
-                        @endforeach
-
-                            
-                         
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div> --}}
-
-					
 					 @else
                	<div id="category-filter">
                         <ul class="category-list">
@@ -175,11 +146,11 @@ Trang chủ
 
 
                         </li>
-                           
+
                         @endforeach
 
-                            
-                         
+
+
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -207,7 +178,7 @@ Trang chủ
                     </div>
                     <div class="col-md-6">
                         <div class="welcome-image">
-                            <img src="images/wellcome-image.jpg" class="algin-right" alt="" />
+                            <img src="../public/images/wellcome-image.jpg" class="algin-right" alt="" />
                         </div>
                     </div>
                 </div>
@@ -226,7 +197,7 @@ Trang chủ
                                     <div class="fact-icon">
                                         <i class="ebook"></i>
                                     </div>
-                                    <span>Giảng viên<strong class="fact-counter">45780</strong></span>
+                                    <span>Giảng viên<strong class="fact-counter">10</strong></span>
                                 </div>
                             </li>
                             <li class="color-green">
@@ -234,7 +205,7 @@ Trang chủ
                                     <div class="fact-icon">
                                         <i class="eaudio"></i>
                                     </div>
-                                    <span>Học viên<strong class="fact-counter">32450</strong></span>
+                                    <span>Học viên<strong class="fact-counter">100</strong></span>
                                 </div>
                             </li>
                             <li class="color-red">
@@ -242,7 +213,7 @@ Trang chủ
                                     <div class="fact-icon">
                                         <i class="magazine"></i>
                                     </div>
-                                    <span>Lớp học<strong class="fact-counter">14450</strong></span>
+                                    <span>Lớp học<strong class="fact-counter">12</strong></span>
                                 </div>
                             </li>
                             <li class="color-blue">
@@ -250,7 +221,7 @@ Trang chủ
                                     <div class="fact-icon">
                                         <i class="videos"></i>
                                     </div>
-                                    <span>Bài học<strong class="fact-counter">32450</strong></span>
+                                    <span>Bài học<strong class="fact-counter">1000</strong></span>
                                 </div>
                             </li>
                         </ul>

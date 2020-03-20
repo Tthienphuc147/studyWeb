@@ -6297,10 +6297,11 @@ button.close {
   position: relative;
 }
 .carousel-inner {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-height: 80rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-height: 60rem;
+    top: -20px;
 }
 .carousel-inner > .item {
   display: none;
@@ -9493,7 +9494,7 @@ a:focus {
 }
 .category-filter {
   background-attachment: fixed;
-  background-image: url('../images/project-filter-bg-home-v1.jpg');
+  background-image: url('../images/bg1.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11923,7 +11924,7 @@ a:focus {
   color: #282828;
 }
 .layout-v2 .category-filter {
-  background-image: url('../images/project-filter-bg-home-v2.jpg');
+  background-image: url('../images/bg1.jpg');
 }
 .layout-v2 .category-filter .filter-buttons .btn.active,
 .layout-v2 .category-filter .filter-buttons .btn:hover {
@@ -13554,9 +13555,10 @@ a:focus {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px;
+  min-height: 20rem;
   position: relative;
   text-align: center;
+  top: -20px;
 }
 @media (max-width: 1024px) {
   .page-banner {
@@ -13569,7 +13571,7 @@ a:focus {
   }
 }
 .page-banner::before {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.4);
   content: "";
   height: 100%;
   left: 0;
@@ -13593,7 +13595,9 @@ a:focus {
   background-image: url('../images/page-banners/product-banner.jpg');
 }
 .page-banner.services-banner {
-  background-image: url('../images/page-banners/services-banner.jpg');
+  background-image: url('../images/page-banners/1.jpg');
+  background-position-y: -166px;
+    background-position-x: -106px;
 }
 .page-banner.signin-banner {
   background-image: url('../images/page-banners/signin-banner.jpg');
@@ -14432,7 +14436,7 @@ a:focus {
   font-weight: 700;
 }
 .signin-main .container{
-  
+
 }
 .signin-main .company-info {
   padding-top: 100px;
@@ -17654,7 +17658,6 @@ a:focus {
 }
 .blog-detail .post-detail {
   background-color: transparent;
-  border: 10px solid #f3f2f2;
   margin: -110px 0 83px;
   padding: 30px 30px 0;
   position: relative;
@@ -18803,7 +18806,7 @@ a:focus {
   max-width: 100%;
   right: 10%;
   text-align: center;
-  top: 50%;
+  top: 70%;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);

@@ -90,7 +90,7 @@ CREATE TABLE `chitietlop_user` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_chitietlophoc_monhoc` int(11) NOT NULL,
-  `status` int(2) NOT NULL
+  `status` int(2)  NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

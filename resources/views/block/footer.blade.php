@@ -40,12 +40,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 widget-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245368.2610477531!2d107.93804189887575!3d16.071763494088405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0x1df0cb4b86727e06!2zxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1584119654019!5m2!1svi!2s" width="800" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <div class="col-md-7 col-sm-6 widget-container">
+                            <div style="width:100%">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245368.2610477531!2d107.93804189887575!3d16.071763494088405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c792252a13%3A0x1df0cb4b86727e06!2zxJDDoCBO4bq1bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1584119654019!5m2!1svi!2s" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+
                         </div>
                         <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
                     </div>
-                </div>                
+                </div>
             </div>
             <div class="sub-footer">
                 <div class="container">
